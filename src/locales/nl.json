@@ -1,0 +1,33 @@
+{
+   "info": {
+      "title": "Jouw plug & play cybersecurity oplossing",
+      "werk": "Werk",
+      "werk-span": "overal veilig online",
+      "apparat": ", vanaf ieder apparaat",
+      "word": "Word",
+      "word-span": "direct gewaarschuwd",
+      "cyber": "bij een cyberdreiging",
+      "onze": "Onze",
+      "onze-span": "24/7 support",
+      "help": "staat altijd klaar om je te helpen"
+   },
+   "form": {
+      "title": "Meld je aan en probeer gratis!",
+      "subtitle": "Binnen 3 minuten zonder betaling aangemaakt",
+      "email": "Email",
+      "company": "Bedrijfsnaam",
+      "placeholder": "Wat is de naam van je bedrijf?",
+      "reg": "Aanmelden",
+      "log": "Aanmelden met Microsoft",
+      "txt": "Als je doorgaat, ga je akkoord met onze",
+      "privacy": "privacy verklaring",
+      "en": "en",
+      "gebrui": "gebruiksvoorwaarden"
+   },
+   "forms__input": {
+      "placeholder": "Het emailadres die je zakelijk gebruikt"
+   },
+   "forms": {
+      "btn-btn": "Ik heb al een account"
+   }
+}

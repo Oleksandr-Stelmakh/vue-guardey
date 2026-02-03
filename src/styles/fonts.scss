@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;700&family=Hahmlet:wght@400;600;700&display=swap');
+
+
+body,
+select {
+   font-family: 'Kumbh Sans', sans-serif;
+   line-height: 1.5;
+   color: var(--color-title);
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: 'Hahmlet', serif;
+   font-weight: 600;
+}

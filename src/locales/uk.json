@@ -1,0 +1,15 @@
+{
+   "header": {
+      "register": "Sign up",
+      "login": "Login"
+   },
+   "form": {
+      "title": "Register and try for free!",
+      "subtitle": "Created in 3 minutes without payment",
+      "email": "Email",
+      "company": "Company name",
+      "continue": "Continue",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
+   }
+}

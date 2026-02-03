@@ -1,0 +1,15 @@
+{
+   "header": {
+      "login": "Anmelden",
+      "register": "Registrieren"
+   },
+   "form": {
+      "title": "Registrieren und kostenlos ausprobieren!",
+      "subtitle": "In 3 Minuten ohne Zahlung erstellt",
+      "email": "E-Mail-Adresse",
+      "company": "Firmenname",
+      "continue": "Weiter",
+      "privacy": "Datenschutzrichtlinie",
+      "terms": "Nutzungsbedingungen"
+   }
+}
