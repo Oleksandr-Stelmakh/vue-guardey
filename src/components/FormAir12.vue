@@ -1,7 +1,6 @@
 <script setup>
 import { ref, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
-import Scrollbar from '../components/Scrollbar.vue'
 import phoneCountry from './phoneCountry.vue'
 
 const firstName = ref('')
@@ -29,12 +28,10 @@ function isValidPhone(value) {
 }
 
 async function handleSubmit() {
-  // очищаем старые ошибки
   Object.keys(errors.value).forEach(key => {
     errors.value[key] = ''
   })
 
-  // Имя
   if (!firstName.value.trim()) {
     errors.value.firstName = 'Заполните это поле'
     await nextTick()
@@ -42,7 +39,6 @@ async function handleSubmit() {
     return
   }
 
-  // Фамилия
   if (!lastName.value.trim()) {
     errors.value.lastName = 'Заполните это поле'
     await nextTick()
@@ -50,7 +46,6 @@ async function handleSubmit() {
     return
   }
 
-  // Телефон
   if (!phone.value.trim()) {
     errors.value.phone = 'Заполните это поле'
     await nextTick()
@@ -58,7 +53,6 @@ async function handleSubmit() {
     return
   }
 
-  // Телефон невалидный
   if (!isValidPhone(phone.value)) {
     errors.value.phone = 'Введите корректный номер телефона'
     await nextTick()
@@ -66,7 +60,6 @@ async function handleSubmit() {
     return
   }
 
-  // Селекты (одновременно)
   let selectError = false
 
   if (!selectedSector.value) {
@@ -80,8 +73,6 @@ async function handleSubmit() {
   }
 
   if (selectError) return
-
-  // Всё ок → переход дальше
   router.push('/PageAir16')
 }
 
@@ -90,7 +81,6 @@ const onScroll = () => {
  
 }
 
-const listRef = ref(null)
 const isOpen = ref(false)
 const isOpen2 = ref(false)
 
@@ -173,18 +163,15 @@ function handleClickOutside(e) {
     '.forms__input, .dropdown, .error'
   )
 
-  // закрываем селекты
   if (!e.target.closest('.select-wrap')) {
     isOpen.value = false
     isOpen2.value = false
   }
 
-  // очищаем ошибки при клике вне полей
   if (!isFormField) {
     clearAllErrors()
   }
 }
-
 
 onMounted(() => {
   document.addEventListener("click", handleClickOutside)
@@ -193,148 +180,146 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener("click", handleClickOutside)
 })
-
 </script>
 
 <template>
-   <div class="form__container">
-      <div class="form__img">
-         <img src="./icons/Step_01.svg" alt="img">
-      </div>
-      <h1 class="form__title">Vertel ons wie je bent</h1>
-      <form action="#" method="post" class="forms">
-         <div class="forms__block">
-            <div class="forms__name">
-               <label for="text" class="forms__lable">Voornaam:</label>
-               <input
-               title="Заполните это поле" 
-               ref="firstNameInput"
-               type="text" 
-               class="forms__input" 
-               placeholder="Jouw roepnaam"  
-               v-model="firstName" 
-               @input="clearError('firstName')">
-                  <p v-if="errors.firstName" class="error-text error-animate">
-                    <img src="./icons/exclamation.svg" alt="">
-                    {{ errors.firstName }}
-                  </p>
-            </div>
-            <div class="forms__surname">
-               <label for="text" class="forms__lable">Achternaam:</label>
-               <input
-               title="Заполните это поле"
-               ref="lastNameInput"
-               type="text"
-               class="forms__input"
-               placeholder="Jouw familienaam"
-               v-model="lastName"
-               @input="clearError('lastName')"/>
-                  <p v-if="errors.lastName" class="error-text error-animate">
-                    <img src="./icons/exclamation.svg" alt="">
-                    {{ errors.lastName }}
-                  </p>
-            </div>
-         </div>
-         <div class="phone-field">
-           <phoneCountry></phoneCountry>
-           <div class="forms__tel">
-              <label for="tel" class="forms__lable">Telefoonnummer:</label>
-              <input
-              title="Заполните это поле"
-              ref="phoneInput" 
-              type="text" 
-              inputmode="tel"
-              class="forms__input tel" 
-              placeholder="Hoe we je kunnen bereken"
-              v-model="phone"
-              @input="clearError('phone')">
-                <p v-if="errors.phone" class="error-text error-animate">
-                  <img src="./icons/exclamation.svg" alt="">
-                  {{ errors.phone }}
-                </p>
-           </div>
-         </div>
+  <div class="form__container">
+    <div class="form__img">
+      <img src="./icons/Step_01.svg" alt="img">
+    </div>
+    <h1 class="form__title">Vertel ons wie je bent</h1>
+    <form action="#" method="post" class="forms">
+      <div class="forms__block">
+       <div class="forms__name">
+         <label for="text" class="forms__lable">Voornaam:</label>
+         <input
+         title="Заполните это поле" 
+         ref="firstNameInput"
+         type="text" 
+         class="forms__input" 
+         placeholder="Jouw roepnaam"  
+         v-model="firstName" 
+         @input="clearError('firstName')">
+         <p v-if="errors.firstName" class="error-text error-animate">
+           <img src="./icons/exclamation.svg" alt="">
+           {{ errors.firstName }}
+         </p>
+       </div>
+       <div class="forms__surname">
+         <label for="text" class="forms__lable">Achternaam:</label>
+         <input
+         title="Заполните это поле"
+         ref="lastNameInput"
+         type="text"
+         class="forms__input"
+         placeholder="Jouw familienaam"
+         v-model="lastName"
+         @input="clearError('lastName')"/>
+         <p v-if="errors.lastName" class="error-text error-animate">
+           <img src="./icons/exclamation.svg" alt="">
+           {{ errors.lastName }}
+         </p>
+       </div>
+     </div>
+     <div class="phone-field">
+        <phoneCountry></phoneCountry>
+        <div class="forms__tel">
+          <label for="tel" class="forms__lable">Telefoonnummer:</label>
+          <input
+          title="Заполните это поле"
+          ref="phoneInput" 
+          type="text" 
+          inputmode="tel"
+          class="forms__input tel" 
+          placeholder="Hoe we je kunnen bereken"
+          v-model="phone"
+          @input="clearError('phone')">
+          <p v-if="errors.phone" class="error-text error-animate">
+            <img src="./icons/exclamation.svg" alt="">
+            {{ errors.phone }}
+          </p>
+        </div>
+     </div>
 
-          <div class="forms__business select-wrap" :class="{ open: isOpen }">
-            <label class="forms__lable">Bedrijfssector:</label>
-            <div class="dropdown" @click="toggleSector">
-               <span :class="{ 'is-selected': selectedSector }">
-                 {{ selectedSector || "Selecteer de sector die het beste past" }}
-               </span>
+     <div class="forms__business select-wrap" :class="{ open: isOpen }">
+        <label class="forms__lable">Bedrijfssector:</label>
+        <div class="dropdown" @click="toggleSector">
+          <span :class="{ 'is-selected': selectedSector }">
+            {{ selectedSector || "Selecteer de sector die het beste past" }}
+          </span>
 
-               <svg class="select-arrow" width="13" height="6" viewBox="0 0 12 8">
-                 <path d="M6 8L0 0H12L6 8Z" fill="#003F34"/>
-               </svg>
-            </div>
-            <Transition name="dropdown">
-              <div class="list-wrap" v-show="isOpen">
-                <ul class="dropdown-list scroll-area" ref="listRef" @scroll="onScroll">
-                  <li v-for="item in sectors" :key="item" @click.stop="selectSector(item)">
-                    {{ item }}
-                  </li>
-                </ul>
-                <!-- <Scrollbar v-show="isOpen && listRef" :target="listRef"/> -->
-              </div>
-            </Transition>
-            <p v-if="errors.sector" class="error error-animate">
-               <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9"/>
-                  <line x1="12" y1="10" x2="12" y2="16"/>
-                  <circle cx="12" cy="7" r="1"/>
-                </svg>
-              {{ errors.sector }}</p>
+          <svg class="select-arrow" width="13" height="6" viewBox="0 0 12 8">
+            <path d="M6 8L0 0H12L6 8Z" fill="#003F34"/>
+          </svg>
+        </div>
+        <Transition name="dropdown">
+          <div class="list-wrap" v-show="isOpen">
+            <ul class="dropdown-list scroll-area" ref="listRef" @scroll="onScroll">
+              <li v-for="item in sectors" :key="item" @click.stop="selectSector(item)">
+                {{ item }}
+              </li>
+            </ul>
           </div>
+        </Transition>
+        <p v-if="errors.sector" class="error error-animate">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <line x1="12" y1="10" x2="12" y2="16"/>
+            <circle cx="12" cy="7" r="1"/>
+          </svg>
+          {{ errors.sector }}
+        </p>
+     </div>
 
       
-         <div class="forms__employee select-wrap" :class="{ open: isOpen2 }">
-            <label for="text" class="forms__lable">Aantal werknemers:</label>
-            <div class="dropdown colleagues"  @click="toggleColleague">
-               <span :class="{ 'is-selected': selectedColleague }">
-                 {{ selectedColleague || "Hoeveel collega’s heb je?" }}
-               </span>
+     <div class="forms__employee select-wrap" :class="{ open: isOpen2 }">
+        <label for="text" class="forms__lable">Aantal werknemers:</label>
+        <div class="dropdown colleagues"  @click="toggleColleague">
+          <span :class="{ 'is-selected': selectedColleague }">
+            {{ selectedColleague || "Hoeveel collega’s heb je?" }}
+          </span>
               
-               <svg class="select-arrow2" width="13" height="6" viewBox="0 0 12 8">
-                 <path d="M6 8L0 0H12L6 8Z" fill="#003F34" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-               </svg>
-           </div>
-           <Transition name="dropdown">
-              <div class="list-wrap" v-show="isOpen2">
-                <ul class="dropdown-list scroll-area" ref="listRef" @scroll="onScroll">
-                  <li v-for="item in colleague" :key="item" @click.stop="selectColleague(item)">
-                    {{ item }}
-                  </li>
-                </ul>
-                <!-- <Scrollbar v-show="isOpen2 && listRef" :target="listRef"/> -->
-              </div>
-            </Transition>
-            <p v-if="errors.colleague" class="error error-animate">
-                <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9"/>
-                  <line x1="12" y1="10" x2="12" y2="16"/>
-                  <circle cx="12" cy="7" r="1"/>
-                </svg>
-              {{ errors.colleague }}</p>
-         </div>
-      </form>
-      <div class="button">
-         <button type="button" class="button__сomeback" @click="router.push('/PageAir5')">
-               <svg class="icon-back" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                 <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="1"/>
-                 <path d="M35 24H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                 <path d="M22 18L16 24L22 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-               </svg>
-
-         </button>
-         <button type="button" class="button__registr" @click.stop="handleSubmit">
-            <div class="button__reg">
-               Volgende
-               <div class="button__icon">
-                  <img src="./icons/Variant.svg" alt="img">
-               </div>
-            </div>
-          </button>
-      </div>
-   </div>
+          <svg class="select-arrow2" width="13" height="6" viewBox="0 0 12 8">
+            <path d="M6 8L0 0H12L6 8Z" fill="#003F34" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <Transition name="dropdown">
+          <div class="list-wrap" v-show="isOpen2">
+            <ul class="dropdown-list scroll-area" ref="listRef" @scroll="onScroll">
+              <li v-for="item in colleague" :key="item" @click.stop="selectColleague(item)">
+                {{ item }}
+              </li>
+            </ul>
+          </div>
+        </Transition>
+        <p v-if="errors.colleague" class="error error-animate">
+         <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+           <circle cx="12" cy="12" r="9"/>
+           <line x1="12" y1="10" x2="12" y2="16"/>
+           <circle cx="12" cy="7" r="1"/>
+         </svg>
+         {{ errors.colleague }}
+        </p>
+     </div>
+    </form>
+    <div class="button">
+      <button type="button" class="button__сomeback" @click="router.push('/PageAir5')">
+        <svg class="icon-back" width="50" height="50" viewBox="0 0 50 50" fill="none">
+          <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="1"/>
+          <path d="M35 24H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M22 18L16 24L22 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button type="button" class="button__registr" @click.stop="handleSubmit">
+        <div class="button__reg">
+          Volgende
+          <div class="button__icon">
+            <img src="./icons/Variant.svg" alt="img">
+          </div>
+        </div>
+      </button>
+    </div>
+ </div>
 </template>
 
 <style lang="scss" scoped>
@@ -534,11 +519,11 @@ onBeforeUnmount(() => {
 } 
 
 .dropdown span {
-  color: var(--color-placeholder); // серый по умолчанию
+  color: var(--color-placeholder); 
 }
 
 .dropdown span.is-selected {
-  color: var(--color-title); // чёрный / основной цвет
+  color: var(--color-title); 
 }
 
 .select-arrow {
@@ -589,7 +574,7 @@ onBeforeUnmount(() => {
 .scroll-area {
   height: 100%;
   overflow-y: auto;
-  padding-right: 8px; // место под кастомный скролл
+  padding-right: 8px;
 }
 
 .dropdown-enter-active,
@@ -607,23 +592,11 @@ onBeforeUnmount(() => {
   opacity: 1;
 }
 
-/* скрываем системный скролл */
-// .list-wrap::-webkit-scrollbar {
-//   display: none;
-// }
-
-
 .dropdown-list {
-  // position: relative;
-  // background: white;
-  // border-radius: 0px 0px 25px 25px;
-  // max-height: 231px;
-  // z-index: 20;
   box-shadow: 0px 8px 20px rgba(0,0,0,0.06);
 }
 .dropdown-list::-webkit-scrollbar {
    width: 3px;
-  //  display: none;
 }
 .dropdown-list::-webkit-scrollbar-track {
   background: #b3b6b4;
@@ -632,10 +605,6 @@ onBeforeUnmount(() => {
   background: #050505;
   border-radius: 5px;
 }
-
-// .dropdown-list::-webkit-scrollbar-thumb:hover {
-//   color: var(--color-hover);
-// }
 
 .dropdown-list li {
   padding: 12px 14px;

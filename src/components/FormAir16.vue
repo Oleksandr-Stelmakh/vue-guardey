@@ -5,10 +5,7 @@ import { useFormStore } from '@/stores/formStore'
 
 const formStore = useFormStore()
 
-
 const router = useRouter()
-
-
 </script>
 
 <template>

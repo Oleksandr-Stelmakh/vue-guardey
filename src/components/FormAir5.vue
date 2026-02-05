@@ -21,7 +21,6 @@ watch(passwordRepeat, () => {
   }
 })
 
-// Проверка сложности пароля
 const hasUppercase = computed(() => /[A-Z]/.test(password.value))
 const hasNumber = computed(() => /[0-9]/.test(password.value))
 const hasSpecial = computed(() => /[^A-Za-z0-9]/.test(password.value))
@@ -46,7 +45,6 @@ const isPasswordsMatch = computed(() => password.value === passwordRepeat.value)
 const handleSubmit = async () => {
   showErrors.value = true
 
-  // Шаг 1 — пароль
   if (!isPasswordValid.value) {
     submitStep.value = 1
     await nextTick()
@@ -54,7 +52,6 @@ const handleSubmit = async () => {
     return
   }
 
-  // Шаг 2 — повтор
   if (!isPasswordRepeatValid.value) {
     submitStep.value = 3
     await nextTick()
@@ -62,7 +59,6 @@ const handleSubmit = async () => {
     return
   }
 
-  // Шаг 3 — несовпадение
   if (!isPasswordsMatch.value) {
     submitStep.value = 3
     await nextTick()
@@ -70,14 +66,12 @@ const handleSubmit = async () => {
     return
   }
 
-  // Шаг 4 — сложность
   if (conditionsMet.value !== 3 || !passwordLength.value) {
     submitStep.value = 1
     await nextTick()
     passwordInput.value?.focus()
     return
   }
-
   router.push('/PageAir12')
 }
 
@@ -85,7 +79,6 @@ const handleSubmit = async () => {
 const formContainer = ref(null)
 
 function onDocumentClick(e) {
-  // если клик произошёл вне контейнера формы — очищаем ошибки
   if (!formContainer.value.contains(e.target)) {
   showErrors.value = false
   submitStep.value = 0
@@ -122,140 +115,134 @@ const showPasswordRepeat = ref(false)
 
 
 <template>
-   <div class="form__container" ref="formContainer">
-      <div class="form__img">
-         <img src="./icons/Step.svg" alt="img">
+  <div class="form__container" ref="formContainer">
+    <div class="form__img">
+      <img src="./icons/Step.svg" alt="img">
+    </div>
+    <h1 class="form__title">Maak een nieuw wachtwoord</h1>
+    <form class="forms" @submit.prevent>
+      <div class="forms__password field">
+        <label for="password" class="forms__lable">Wachtwoord:</label>
+          <div class="input-wrapper">
+            <input
+            title="Заполните это поле"
+            ref="passwordInput"
+            v-model="password"
+            :type="showPassword ? 'text' : 'password'"
+            class="forms__input"
+            placeholder="Jouw unieke en geheime code"
+            :class="{ error: submitStep === 1,
+            'error-danger': submitStep === 3 && !isPasswordsMatch }"/>
+            <span class="toggle-pass" @click="showPassword = !showPassword">
+              <svg v-if="!showPassword" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 3L21 21" stroke="#011816" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10.58 10.58C10.21 11 10 11.48 10 12C10 13.1 10.9 14 12 14C12.52 14 13 13.79 13.41 13.42" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14.53 9.47C14.07 9.17 13.55 9 13 9C11.9 9 11 9.9 11 11C11 11.55 11.17 12.07 11.47 12.53" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.88 5.08C10.58 5.03 11.28 5 12 5C17 5 21.27 8.11 23 12C22.18 13.85 20.88 15.47 19.19 16.73" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4.81 7.27C3.12 8.53 1.82 10.15 1 12C2.38 15.19 5.42 17.69 9 18.58" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+
+              <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5C7 5 2.73 8.11 1 12C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 12C21.27 8.11 17 5 12 5Z" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="3" stroke="#011816" stroke-width="2"/>
+              </svg>
+            </span>
+          </div>
+          <div  
+            v-if="showErrors && submitStep === 1 && !isPasswordValid"
+            class="error-text error-animate">
+            <img src="./icons/exclamation.svg" alt="">
+            Vul dit veld in!
+          </div>
+        <div v-if="submitStep === 3 && !isPasswordsMatch"
+          class="error-repeat error-animate">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <line x1="12" y1="10" x2="12" y2="16"/>
+            <circle cx="12" cy="7" r="1"/>
+          </svg>
+            The passwords do not match
+        </div>
       </div>
-      <h1 class="form__title">Maak een nieuw wachtwoord</h1>
-      <form class="forms" @submit.prevent>
-         
-         <!-- пароль -->
-         <div class="forms__password field">
-            <label for="password" class="forms__lable">Wachtwoord:</label>
-             <div class="input-wrapper">
-                  <input
-                  title="Заполните это поле"
-                  ref="passwordInput"
-                  v-model="password"
-                  :type="showPassword ? 'text' : 'password'"
-                  class="forms__input"
-                  placeholder="Jouw unieke en geheime code"
-                  :class="{ error: submitStep === 1,
-                  'error-danger': submitStep === 3 && !isPasswordsMatch }"/>
-                <span class="toggle-pass" @click="showPassword = !showPassword">
-                  <svg v-if="!showPassword" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 3L21 21" stroke="#011816" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M10.58 10.58C10.21 11 10 11.48 10 12C10 13.1 10.9 14 12 14C12.52 14 13 13.79 13.41 13.42" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14.53 9.47C14.07 9.17 13.55 9 13 9C11.9 9 11 9.9 11 11C11 11.55 11.17 12.07 11.47 12.53" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9.88 5.08C10.58 5.03 11.28 5 12 5C17 5 21.27 8.11 23 12C22.18 13.85 20.88 15.47 19.19 16.73" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M4.81 7.27C3.12 8.53 1.82 10.15 1 12C2.38 15.19 5.42 17.69 9 18.58" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
 
-                  <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 5C7 5 2.73 8.11 1 12C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 12C21.27 8.11 17 5 12 5Z" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="12" cy="12" r="3" stroke="#011816" stroke-width="2"/>
-                  </svg>
-                </span>
-             </div>
-            <div  
-               v-if="showErrors && submitStep === 1 && !isPasswordValid"
-               class="error-text error-animate">
-               <img src="./icons/exclamation.svg" alt="">
-              Vul dit veld in!
-            </div>
-            <div v-if="submitStep === 3 && !isPasswordsMatch"
-             class="error-repeat error-animate">
-                     <svg width="20" height="20" viewBox="0 0 22 22" fill="none" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                       <circle cx="12" cy="12" r="9"/>
-                       <line x1="12" y1="10" x2="12" y2="16"/>
-                       <circle cx="12" cy="7" r="1"/>
-                     </svg>
-                    The passwords do not match
-                 </div>
-         </div>
-
-         <!-- индикаторы -->
-         <div class="forms__info">
-            <div class="forms__infoRect"></div>
-            <div class="forms__decor">
-               <div class="forms__decor1" :class="decorClass(1)"></div>
-               <div class="forms__decor2" :class="decorClass(2)"></div>
-               <div class="forms__decor3" :class="decorClass(3)"></div>
-            </div>
-            <div 
-            class="forms__text password-req"
-            :class="{
-             'red': passwordStarted && !allGood,
-             'green': allGood
-            }">
-               Een goed wachtwoord heeft minimaal <span :class="passwordStarted ? (passwordLength ? 'ok' : 'bad') : ''">12 karakters</span>, 
-               <span :class="passwordStarted ? (hasUppercase ? 'ok' : 'bad') : ''">1 hoofdletter</span>, 
-               <span :class="passwordStarted ? (hasSpecial ? 'ok' : 'bad') : ''">1 speciaal karakter</span> en 
-               <span :class="passwordStarted ? (hasNumber ? 'ok' : 'bad') : ''">1 getal</span>.
-            </div>
-         </div>
-
-         <!-- повтор -->
-         <div class="forms__passwordRepeat field">
-            <label for="password" class="forms__lable">Herhaal wachtwoord:</label>
-             <div class="input-wrapper">
-                <input
-                  title="Заполните это поле"
-                  ref="passwordRepeatInput"
-                  v-model="passwordRepeat"
-                 :type="showPasswordRepeat ? 'text' : 'password'"
-                  class="forms__input"
-                  placeholder="Jouw unieke en geheime code"
-                  :class="{ error: submitStep === 3 && !isPasswordRepeatValid }"/>
-                <span class="toggle-pass" @click="showPasswordRepeat = !showPasswordRepeat">
-                    <svg v-if="!showPasswordRepeat" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3 3L21 21" stroke="#011816" stroke-width="2" stroke-linecap="round"/>
-                      <path d="M10.58 10.58C10.21 11 10 11.48 10 12C10 13.1 10.9 14 12 14C12.52 14 13 13.79 13.41 13.42" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M14.53 9.47C14.07 9.17 13.55 9 13 9C11.9 9 11 9.9 11 11C11 11.55 11.17 12.07 11.47 12.53" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M9.88 5.08C10.58 5.03 11.28 5 12 5C17 5 21.27 8.11 23 12C22.18 13.85 20.88 15.47 19.19 16.73" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M4.81 7.27C3.12 8.53 1.82 10.15 1 12C2.38 15.19 5.42 17.69 9 18.58" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-
-                   <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 5C7 5 2.73 8.11 1 12C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 12C21.27 8.11 17 5 12 5Z" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <circle cx="12" cy="12" r="3" stroke="#011816" stroke-width="2"/>
-                   </svg>
-                </span>
-             </div>
-             <div
-                 v-if="showErrors && submitStep === 3 && !isPasswordRepeatValid"
-                 class="error-text error-animate">
-                  <img src="./icons/exclamation.svg" />
-                  Vul dit veld in!
-             </div>
-         </div>
-      </form>
-
-      <div class="button">
-         <button type="button" class="button__сomeback" @click="router.push('/PageAir1')">
-               <svg class="icon-back" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                 <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="1"/>
-                 <path d="M35 24H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                 <path d="M22 18L16 24L22 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-               </svg>
-
-         </button>
-         <button type="button" class="button__registr" @click="handleSubmit">
-            <div class="button__reg">
-               Volgende
-               <div class="button__icon">
-                  <img src="./icons/Variant.svg" alt="img">
-               </div>
-            </div>
-         </button>
+      <div class="forms__info">
+        <div class="forms__infoRect"></div>
+        <div class="forms__decor">
+          <div class="forms__decor1" :class="decorClass(1)"></div>
+          <div class="forms__decor2" :class="decorClass(2)"></div>
+          <div class="forms__decor3" :class="decorClass(3)"></div>
+        </div>
+        <div 
+         class="forms__text password-req"
+         :class="{
+         'red': passwordStarted && !allGood,
+         'green': allGood
+         }">
+         Een goed wachtwoord heeft minimaal <span :class="passwordStarted ? (passwordLength ? 'ok' : 'bad') : ''">12 karakters</span>, 
+         <span :class="passwordStarted ? (hasUppercase ? 'ok' : 'bad') : ''">1 hoofdletter</span>, 
+         <span :class="passwordStarted ? (hasSpecial ? 'ok' : 'bad') : ''">1 speciaal karakter</span> en 
+         <span :class="passwordStarted ? (hasNumber ? 'ok' : 'bad') : ''">1 getal</span>.
+        </div>
       </div>
-   </div>
+
+      <div class="forms__passwordRepeat field">
+        <label for="password" class="forms__lable">Herhaal wachtwoord:</label>
+          <div class="input-wrapper">
+            <input
+              title="Заполните это поле"
+              ref="passwordRepeatInput"
+              v-model="passwordRepeat"
+              :type="showPasswordRepeat ? 'text' : 'password'"
+              class="forms__input"
+              placeholder="Jouw unieke en geheime code"
+              :class="{ error: submitStep === 3 && !isPasswordRepeatValid }"/>
+            <span class="toggle-pass" @click="showPasswordRepeat = !showPasswordRepeat">
+              <svg v-if="!showPasswordRepeat" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 3L21 21" stroke="#011816" stroke-width="2" stroke-linecap="round"/>
+                <path d="M10.58 10.58C10.21 11 10 11.48 10 12C10 13.1 10.9 14 12 14C12.52 14 13 13.79 13.41 13.42" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14.53 9.47C14.07 9.17 13.55 9 13 9C11.9 9 11 9.9 11 11C11 11.55 11.17 12.07 11.47 12.53" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9.88 5.08C10.58 5.03 11.28 5 12 5C17 5 21.27 8.11 23 12C22.18 13.85 20.88 15.47 19.19 16.73" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4.81 7.27C3.12 8.53 1.82 10.15 1 12C2.38 15.19 5.42 17.69 9 18.58" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+
+              <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5C7 5 2.73 8.11 1 12C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 12C21.27 8.11 17 5 12 5Z" stroke="#011816" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="3" stroke="#011816" stroke-width="2"/>
+              </svg>
+            </span>
+          </div>
+          <div
+            v-if="showErrors && submitStep === 3 && !isPasswordRepeatValid"
+            class="error-text error-animate">
+            <img src="./icons/exclamation.svg" />
+            Vul dit veld in!
+          </div>
+      </div>
+    </form>
+
+    <div class="button">
+      <button type="button" class="button__сomeback" @click="router.push('/PageAir1')">
+        <svg class="icon-back" width="50" height="50" viewBox="0 0 50 50" fill="none">
+          <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="1"/>
+          <path d="M35 24H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M22 18L16 24L22 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <button type="button" class="button__registr" @click="handleSubmit">
+        <div class="button__reg">
+          Volgende
+          <div class="button__icon">
+            <img src="./icons/Variant.svg" alt="img">
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
 </template>
 
 
 <style lang="scss" scoped>
-
-/* добавляем цвета */
 .forms__decor1.red { background: var(--color-error) !important; opacity: 1 !important; }
 .forms__decor1.orange { background: var(--color-error-yellow) !important; opacity: 1 !important; }
 .forms__decor2.orange { background: var(--color-error-yellow) !important; opacity: 1 !important; }
@@ -265,7 +252,7 @@ const showPasswordRepeat = ref(false)
 
 .password-req {
   transition: color .25s ease;
-  color: var(--color-title); // изначальный цвет
+  color: var(--color-title); 
 }
 
 .password-req span {
@@ -273,11 +260,11 @@ const showPasswordRepeat = ref(false)
 }
 
 .password-req span.bad {
-  color: var(--color-error) !important; // красный
+  color: var(--color-error) !important; 
 }
 
 .password-req span.ok {
-  color: var(--color-error-green) !important; // зелёный
+  color: var(--color-error-green) !important; 
 }
 
 .error-animate {

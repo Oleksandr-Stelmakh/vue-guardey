@@ -46,7 +46,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
       <div class="custom-select" ref="selectRef">
         <div class="selected" @click="showList = !showList">
           <img :src="selected.flag" :alt="selected.code" class="flag" />
-			 <span>{{ selected.code }}</span>
+			    <span>{{ selected.code }}</span>
         </div>
 
         <ul v-if="showList" class="options">
@@ -55,7 +55,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
             :key="c.code"
             class="option"
 				    @click.stop="selectCountry(c)" 
-          >
+            >
             <img :src="c.flag" :alt="c.code" class="flag" />
             <span>{{ c.code }}</span>
           </li>

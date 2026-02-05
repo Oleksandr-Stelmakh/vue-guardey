@@ -12,7 +12,6 @@ let mediaQuery
 function handleMediaChange(e) {
   isMobile.value = e.matches
 
-  //  при входе в mobile — сразу сворачиваем info
   if (e.matches) {
     isInfoOpen.value = false
   }
@@ -20,21 +19,20 @@ function handleMediaChange(e) {
 
 onMounted(() => {
   mediaQuery = window.matchMedia('(max-width: 991.98px)')
-  handleMediaChange(mediaQuery) // инициализация
+  handleMediaChange(mediaQuery) 
   mediaQuery.addEventListener('change', handleMediaChange)
 })
 
 onBeforeUnmount(() => {
   mediaQuery.removeEventListener('change', handleMediaChange)
 })
-
 </script>
 
 <template>
    <Transition name="slide-up">
       <div
-      v-if="!isMobile || isInfoOpen" 
-      class="info__container info--mobile">
+       v-if="!isMobile || isInfoOpen" 
+       class="info__container info--mobile">
 		   <h1 class="info__title">{{ t('info.title') }}</h1>
 		   <div class="info__img">
 			   <img src="./icons/Frame 2125.svg" alt="img">
@@ -44,12 +42,12 @@ onBeforeUnmount(() => {
 			   <li>{{ t('info.word') }} <span>{{ t('info.word-span') }}</span> {{ t('info.cyber') }}</li>
 			   <li>{{ t('info.onze') }} <span>{{ t('info.onze-span') }}</span> {{ t('info.help') }}</li>
 		   </ul>
-         <button
-            v-if="isMobile"
-            class="info-close"
-            @click="isInfoOpen = false">
-            ✕
-         </button>
+        <button
+          v-if="isMobile"
+          class="info-close"
+          @click="isInfoOpen = false">
+          ✕
+        </button>
 	   </div>
    </Transition>
    <button
@@ -57,11 +55,10 @@ onBeforeUnmount(() => {
      class="info-toggle"
      @click="isInfoOpen = true">
      Why Guardey?
-    <svg class="toggle-up" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path d="M6 14l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+     <svg class="toggle-up" width="24" height="24" viewBox="0 0 24 24" fill="none">
+       <path d="M6 14l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+     </svg>
    </button>
-
 </template>
 
 <style lang="scss" scoped>

@@ -1,17 +1,6 @@
-<script>
-import InfoAir5 from './InfoAir5.vue';
-import FormAir5 from './FormAir5.vue';
-
-export default {
-  components: {InfoAir5, FormAir5},
-  
-  data() {
-      return {
-
-    }
-  },
-  methods: {}
-}
+<script setup>
+  import InfoAir5 from './InfoAir5.vue';
+  import FormAir5 from './FormAir5.vue';
 </script>
 
 <template>

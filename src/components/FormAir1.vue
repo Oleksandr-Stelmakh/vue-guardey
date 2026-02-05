@@ -50,7 +50,6 @@ function validateEmail(value) {
 async function handleSubmit() {
   clearAllErrors()
 
-  // Email — первый
   if (!email.value.trim()) {
     errors.value.email = 'Заполните это поле'
     await nextTick()
@@ -66,7 +65,6 @@ async function handleSubmit() {
     return
   }
 
-  // Company — второй
   if (!address.value.trim()) {
     errors.value.address = 'Заполните это поле'
     await nextTick()
@@ -74,21 +72,18 @@ async function handleSubmit() {
     return
   }
   formStore.setEmail(email.value)
-  // Всё ок
   router.push('/PageAir5')
 }
 
 function onEmailInput() {
-  // убираем ошибку
+  
   errors.value.email = ''
 
-  // если поле пустое — подсказку не показываем
   if (!email.value.trim()) {
     emailHint.value = ''
     return
   }
 
-  // показываем подсказку, если email некорректный
   emailHint.value = validateEmail(email.value)
 }
 
@@ -114,43 +109,43 @@ onBeforeUnmount(() => {
 
 
 <template>
-   <div class="form__container">
+  <div class="form__container">
 		<h1 class="form__title">{{ t('form.title') }}</h1>
 		<div class="form__subtitle">{{ t('form.subtitle') }}</div>
 		<form class="forms">
 			<div class="forms__email">
 				<label for="email" class="forms__lable">{{ t('form.email') }}</label>
 				<input
-            title="Заполните это поле" 
-            ref="emailInput" 
-            v-model="email" 
-            @input="onEmailInput"
-            :class="{ error: errors.email }"
-            class="forms__input" 
-            :placeholder="t('forms__input.placeholder')">
-               <p v-if="errors.email" class="error-text error-animate">
-                  <img src="./icons/exclamation.svg" alt="">
-                  {{ errors.email }}
-               </p> 
-               <p v-else-if="emailHint" class="hint-text">
-                  <img src="./icons/exclamation.svg" alt="">
-                  {{ emailHint }}
-               </p> 
+        title="Заполните это поле" 
+        ref="emailInput" 
+        v-model="email" 
+        @input="onEmailInput"
+        :class="{ error: errors.email }"
+        class="forms__input" 
+        :placeholder="t('forms__input.placeholder')">
+        <p v-if="errors.email" class="error-text error-animate">
+          <img src="./icons/exclamation.svg" alt="">
+          {{ errors.email }}
+        </p> 
+        <p v-else-if="emailHint" class="hint-text">
+          <img src="./icons/exclamation.svg" alt="">
+          {{ emailHint }}
+        </p> 
 			</div>
 			<div class="forms__address">
 				<label for="address" class="forms__lable">{{ t('form.company') }}</label>
 				<input
-            title="Заполните это поле"
-            ref="addressInput" 
-            v-model="address"
-            @input="clearError('address')"
-            :class="{ error: errors.address }" 
-            class="forms__input" 
-            :placeholder="t('form.placeholder')">
-               <p v-if="errors.address" class="error-text error-animate">
-                  <img src="./icons/exclamation.svg" alt="">
-                  {{ errors.address }}
-               </p>
+        title="Заполните это поле"
+        ref="addressInput" 
+        v-model="address"
+        @input="clearError('address')"
+        :class="{ error: errors.address }" 
+        class="forms__input" 
+        :placeholder="t('form.placeholder')">
+        <p v-if="errors.address" class="error-text error-animate">
+          <img src="./icons/exclamation.svg" alt="">
+          {{ errors.address }}
+        </p>
 			</div>
 			<div class="forms__btn">
 				<a href="#" class="forms__btn-btn">{{ t('forms.btn-btn')}}</a>
@@ -160,7 +155,7 @@ onBeforeUnmount(() => {
 			<button type="button" class="button__registr" @click="handleSubmit">
 				<a href="#" class="button__reg">
 					{{ t('form.reg') }}
-						<img src="./icons/Variant.svg" alt="img">
+					<img src="./icons/Variant.svg" alt="img">
 				</a>
 			</button>
 			<div class="button__login">

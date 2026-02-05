@@ -49,7 +49,6 @@ onBeforeUnmount(() => {
 
 <div class="phone" title="Заполните это поле">
   <div class="phone__wrapper">
-    <!-- Country selector -->
     <button
       type="button"
       class="phone__country"
@@ -70,7 +69,6 @@ onBeforeUnmount(() => {
     </button>
   </div>
 
-  <!-- Dropdown -->
   <div v-if="isCountryOpen" class="phone__dropdown">
     <div
       v-for="country in countries"

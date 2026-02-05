@@ -1,17 +1,6 @@
-<script>
-import InfoAir12 from './InfoAir12.vue';
-import FormAir12 from './FormAir12.vue';
-
-export default {
-  components: {InfoAir12, FormAir12},
-  
-  data() {
-      return {
-
-    }
-  },
-  methods: {}
-}
+<script setup>
+  import InfoAir12 from './InfoAir12.vue';
+  import FormAir12 from './FormAir12.vue';
 </script>
 
 <template>
