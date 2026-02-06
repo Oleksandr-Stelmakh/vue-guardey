@@ -1,15 +1,33 @@
 {
-   "header": {
-      "login": "Connexion",
-      "register": "S'inscrire"
+   "info": {
+      "title": "Votre solution de cybersécurité plug & play",
+      "werk": "Travaillez",
+      "werk-span": "en sécurité en ligne partout",
+      "apparat": ", depuis n'importe quel appareil",
+      "word": "Soyez",
+      "word-span": "alerté immédiatement",
+      "cyber": "en cas de menace cyber",
+      "onze": "Notre",
+      "onze-span": "support 24/7",
+      "help": "est toujours prêt à vous aider"
    },
    "form": {
       "title": "Inscrivez-vous et essayez gratuitement !",
       "subtitle": "Créé en 3 minutes sans paiement",
-      "email": "Adresse e-mail",
+      "email": "Email",
       "company": "Nom de l'entreprise",
-      "continue": "Continuer",
-      "privacy": "Politique de confidentialité",
-      "terms": "Conditions d'utilisation"
+      "placeholder": "Quel est le nom de votre entreprise ?",
+      "reg": "S'inscrire",
+      "log": "Se connecter avec Microsoft",
+      "txt": "En continuant, vous acceptez notre",
+      "privacy": "politique de confidentialité",
+      "en": "et",
+      "gebrui": "conditions d'utilisation"
+   },
+   "forms__input": {
+      "placeholder": "L'adresse e-mail que vous utilisez professionnellement"
+   },
+   "forms": {
+      "btn-btn": "J'ai déjà un compte"
    }
 }

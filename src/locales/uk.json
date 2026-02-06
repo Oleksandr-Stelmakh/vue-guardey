@@ -1,15 +1,33 @@
 {
-   "header": {
-      "register": "Sign up",
-      "login": "Login"
+   "info": {
+      "title": "Your plug & play cybersecurity solution",
+      "werk": "Work",
+      "werk-span": "safely online everywhere",
+      "apparat": ", from any device",
+      "word": "Be",
+      "word-span": "warned immediately",
+      "cyber": "of a cyber threat",
+      "onze": "Our",
+      "onze-span": "24/7 support",
+      "help": "is always ready to help you"
    },
    "form": {
-      "title": "Register and try for free!",
+      "title": "Sign up and try for free!",
       "subtitle": "Created in 3 minutes without payment",
       "email": "Email",
-      "company": "Company name",
-      "continue": "Continue",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Use"
+      "company": "Company Name",
+      "placeholder": "What is your company name?",
+      "reg": "Sign Up",
+      "log": "Sign in with Microsoft",
+      "txt": "By continuing, you agree to our",
+      "privacy": "privacy policy",
+      "en": "and",
+      "gebrui": "terms of service"
+   },
+   "forms__input": {
+      "placeholder": "The email address you use for business"
+   },
+   "forms": {
+      "btn-btn": "I already have an account"
    }
 }

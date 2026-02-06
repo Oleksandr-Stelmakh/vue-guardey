@@ -1,15 +1,33 @@
 {
-   "header": {
-      "login": "Anmelden",
-      "register": "Registrieren"
+   "info": {
+      "title": "Ihre Plug-&-Play-Cybersicherheitslösung",
+      "werk": "Arbeiten",
+      "werk-span": "überall sicher online",
+      "apparat": ", von jedem Gerät aus",
+      "word": "Seien",
+      "word-span": "Sie sofort gewarnt",
+      "cyber": "vor einer Cyberbedrohung",
+      "onze": "Unser",
+      "onze-span": "24/7-Support",
+      "help": "ist immer bereit, Ihnen zu helfen"
    },
    "form": {
       "title": "Registrieren und kostenlos ausprobieren!",
       "subtitle": "In 3 Minuten ohne Zahlung erstellt",
-      "email": "E-Mail-Adresse",
+      "email": "E-Mail",
       "company": "Firmenname",
-      "continue": "Weiter",
+      "placeholder": "Wie heißt Ihr Unternehmen?",
+      "reg": "Registrieren",
+      "log": "Mit Microsoft anmelden",
+      "txt": "Indem Sie fortfahren, stimmen Sie unserer",
       "privacy": "Datenschutzrichtlinie",
-      "terms": "Nutzungsbedingungen"
+      "en": "und",
+      "gebrui": "Nutzungsbedingungen"
+   },
+   "forms__input": {
+      "placeholder": "Die E-Mail-Adresse, die Sie beruflich verwenden"
+   },
+   "forms": {
+      "btn-btn": "Ich habe bereits ein Konto"
    }
 }
