@@ -29,5 +29,27 @@
    },
    "forms": {
       "btn-btn": "Mam już konto"
+   },
+   "FormAir5": {
+      "title": "Utwórz nowe hasło",
+      "lable": "Hasło:",
+      "passwordInput": {
+         "placeholder": "Twój unikalny i tajny kod"
+      },
+      "error-text": "Wypełnij to pole!",
+      "error-repeat": "Hasła nie są zgodne",
+      "text": "Dobre hasło ma co najmniej",
+      "Length": "12 znaków",
+      "Uppercase": "1 wielka litera",
+      "Special": "1 znak specjalny",
+      "Number": "1 cyfra",
+      "forms__lable": "Powtórz hasło:",
+      "passwordRepeatInput": {
+         "placeholder": "Twój unikalny i tajny kod"
+      },
+      "reg": "Dalej"
+   },
+   "infoAir5": {
+      "title": "Hasło jest jak szczoteczka do zębów: nie należy się nim dzielić i należy je zmieniać co 6 miesięcy."
    }
 }

@@ -29,5 +29,27 @@
    },
    "forms": {
       "btn-btn": "Ich habe bereits ein Konto"
+   },
+   "FormAir5": {
+      "title": "Neues Passwort erstellen",
+      "lable": "Passwort:",
+      "passwordInput": {
+         "placeholder": "Dein einzigartiger und geheimer Code"
+      },
+      "error-text": "Bitte dieses Feld ausfüllen!",
+      "error-repeat": "Die Passwörter stimmen nicht überein",
+      "text": "Ein gutes Passwort hat mindestens",
+      "Length": "12 Zeichen",
+      "Uppercase": "1 Großbuchstabe",
+      "Special": "1 Sonderzeichen",
+      "Number": "1 Zahl",
+      "forms__lable": "Passwort wiederholen:",
+      "passwordRepeatInput": {
+         "placeholder": "Dein einzigartiger und geheimer Code"
+      },
+      "reg": "Weiter"
+   },
+   "infoAir5": {
+      "title": "Ein Passwort ist wie eine Zahnbürste: man sollte es nicht teilen und alle 6 Monate erneuern."
    }
 }

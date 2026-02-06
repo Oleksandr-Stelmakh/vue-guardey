@@ -1,5 +1,7 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 </script>
 
 <template>
@@ -7,7 +9,7 @@
       <div class="info__img">
          <img src="./icons/Comp.svg" alt="img">
 		</div>
-      <h1 class="info__title">Een wachtwoord is als een tandenborstel; je moet hem niet delen en elke 6 maanden vernieuwen.</h1>
+      <h1 class="info__title">{{ t('infoAir5.title') }}</h1>
 	</div>
 </template>
 

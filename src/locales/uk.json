@@ -29,5 +29,27 @@
    },
    "forms": {
       "btn-btn": "I already have an account"
+   },
+   "FormAir5": {
+      "title": "Create a new password",
+      "lable": "Password:",
+      "passwordInput": {
+         "placeholder": "Your unique and secret code"
+      },
+      "error-text": "Please fill out this field!",
+      "error-repeat": "The passwords do not match",
+      "text": "A good password has at least",
+      "Length": "12 characters",
+      "Uppercase": "1 uppercase letter",
+      "Special": "1 special character",
+      "Number": "1 number",
+      "forms__lable": "Repeat password:",
+      "passwordRepeatInput": {
+         "placeholder": "Your unique and secret code"
+      },
+      "reg": "Next"
+   },
+   "infoAir5": {
+      "title": "A password is like a toothbrush: you should not share it and you should change it every 6 months."
    }
 }

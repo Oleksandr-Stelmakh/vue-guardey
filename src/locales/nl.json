@@ -29,5 +29,27 @@
    },
    "forms": {
       "btn-btn": "Ik heb al een account"
+   },
+   "infoAir5": {
+      "title": "Een wachtwoord is als een tandenborstel; je moet hem niet delen en elke 6 maanden vernieuwen."
+   },
+   "FormAir5": {
+      "title": "Maak een nieuw wachtwoord",
+      "lable": "Wachtwoord:",
+      "passwordInput": {
+         "placeholder": "Jouw unieke en geheime code"
+      },
+      "error-text": "Vul dit veld in!",
+      "error-repeat": "The passwords do not match",
+      "text": "Een goed wachtwoord heeft minimaal",
+      "Length": "12 karakters",
+      "Uppercase": "1 hoofdletter",
+      "Special": "1 speciaal karakter",
+      "Number": "1 getal",
+      "forms__lable": "Herhaal wachtwoord:",
+      "passwordRepeatInput": {
+         "placeholder": "Jouw unieke en geheime code"
+      },
+      "reg": " Volgende"
    }
 }

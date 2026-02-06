@@ -1,6 +1,9 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const router = useRouter()
 
@@ -119,10 +122,10 @@ const showPasswordRepeat = ref(false)
     <div class="form__img">
       <img src="./icons/Step.svg" alt="img">
     </div>
-    <h1 class="form__title">Maak een nieuw wachtwoord</h1>
+    <h1 class="form__title">{{ t('FormAir5.title') }}</h1>
     <form class="forms" @submit.prevent>
       <div class="forms__password field">
-        <label for="password" class="forms__lable">Wachtwoord:</label>
+        <label for="password" class="forms__lable">{{ t('FormAir5.lable') }}</label>
           <div class="input-wrapper">
             <input
             title="Заполните это поле"
@@ -130,7 +133,7 @@ const showPasswordRepeat = ref(false)
             v-model="password"
             :type="showPassword ? 'text' : 'password'"
             class="forms__input"
-            placeholder="Jouw unieke en geheime code"
+            :placeholder="t('FormAir5.passwordInput.placeholder')"
             :class="{ error: submitStep === 1,
             'error-danger': submitStep === 3 && !isPasswordsMatch }"/>
             <span class="toggle-pass" @click="showPassword = !showPassword">
@@ -152,7 +155,7 @@ const showPasswordRepeat = ref(false)
             v-if="showErrors && submitStep === 1 && !isPasswordValid"
             class="error-text error-animate">
             <img src="./icons/exclamation.svg" alt="">
-            Vul dit veld in!
+            {{ t('FormAir5.error-text') }}
           </div>
         <div v-if="submitStep === 3 && !isPasswordsMatch"
           class="error-repeat error-animate">
@@ -161,7 +164,7 @@ const showPasswordRepeat = ref(false)
             <line x1="12" y1="10" x2="12" y2="16"/>
             <circle cx="12" cy="7" r="1"/>
           </svg>
-            The passwords do not match
+            {{ t('FormAir5.error-repeat') }}
         </div>
       </div>
 
@@ -178,15 +181,15 @@ const showPasswordRepeat = ref(false)
          'red': passwordStarted && !allGood,
          'green': allGood
          }">
-         Een goed wachtwoord heeft minimaal <span :class="passwordStarted ? (passwordLength ? 'ok' : 'bad') : ''">12 karakters</span>, 
-         <span :class="passwordStarted ? (hasUppercase ? 'ok' : 'bad') : ''">1 hoofdletter</span>, 
-         <span :class="passwordStarted ? (hasSpecial ? 'ok' : 'bad') : ''">1 speciaal karakter</span> en 
-         <span :class="passwordStarted ? (hasNumber ? 'ok' : 'bad') : ''">1 getal</span>.
+         {{ t('FormAir5.text') }} <span :class="passwordStarted ? (passwordLength ? 'ok' : 'bad') : ''">{{ t('FormAir5.Length') }}</span>, 
+         <span :class="passwordStarted ? (hasUppercase ? 'ok' : 'bad') : ''">{{ t('FormAir5.Uppercase') }}</span>, 
+         <span :class="passwordStarted ? (hasSpecial ? 'ok' : 'bad') : ''">{{ t('FormAir5.Special') }}</span> en 
+         <span :class="passwordStarted ? (hasNumber ? 'ok' : 'bad') : ''">{{ t('FormAir5.Number') }}</span>.
         </div>
       </div>
 
       <div class="forms__passwordRepeat field">
-        <label for="password" class="forms__lable">Herhaal wachtwoord:</label>
+        <label for="password" class="forms__lable">{{ t('FormAir5.forms__lable') }}</label>
           <div class="input-wrapper">
             <input
               title="Заполните это поле"
@@ -194,7 +197,7 @@ const showPasswordRepeat = ref(false)
               v-model="passwordRepeat"
               :type="showPasswordRepeat ? 'text' : 'password'"
               class="forms__input"
-              placeholder="Jouw unieke en geheime code"
+              :placeholder="t('FormAir5.passwordRepeatInput.placeholder')"
               :class="{ error: submitStep === 3 && !isPasswordRepeatValid }"/>
             <span class="toggle-pass" @click="showPasswordRepeat = !showPasswordRepeat">
               <svg v-if="!showPasswordRepeat" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -215,7 +218,7 @@ const showPasswordRepeat = ref(false)
             v-if="showErrors && submitStep === 3 && !isPasswordRepeatValid"
             class="error-text error-animate">
             <img src="./icons/exclamation.svg" />
-            Vul dit veld in!
+            {{ t('FormAir5.error-text') }}
           </div>
       </div>
     </form>
@@ -231,7 +234,7 @@ const showPasswordRepeat = ref(false)
 
       <button type="button" class="button__registr" @click="handleSubmit">
         <div class="button__reg">
-          Volgende
+          {{ t('FormAir5.reg') }}
           <div class="button__icon">
             <img src="./icons/Variant.svg" alt="img">
           </div>

@@ -29,5 +29,27 @@
    },
    "forms": {
       "btn-btn": "J'ai déjà un compte"
+   },
+   "FormAir5": {
+      "title": "Créez un nouveau mot de passe",
+      "lable": "Mot de passe:",
+      "passwordInput": {
+         "placeholder": "Votre code unique et secret"
+      },
+      "error-text": "Veuillez remplir ce champ !",
+      "error-repeat": "Les mots de passe ne correspondent pas",
+      "text": "Un bon mot de passe contient au moins",
+      "Length": "12 caractères",
+      "Uppercase": "1 majuscule",
+      "Special": "1 caractère spécial",
+      "Number": "1 chiffre",
+      "forms__lable": "Répétez le mot de passe :",
+      "passwordRepeatInput": {
+         "placeholder": "Votre code unique et secret"
+      },
+      "reg": "Suivant"
+   },
+   "infoAir5": {
+      "title": "Un mot de passe, c'est comme une brosse à dents : il ne faut pas le partager et il faut le renouveler tous les 6 mois."
    }
 }

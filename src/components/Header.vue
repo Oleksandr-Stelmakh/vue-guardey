@@ -8,7 +8,7 @@ const { locale } = useI18n()
 const countries = [
   { code: 'NL', flag: '/flags/nl.svg', lang: 'nl' },
   { code: 'UK', flag: '/flags/gb.svg', lang: 'uk' },
-  { code: 'US', flag: '/flags/us.svg', lang: 'us' },
+  { code: 'EN', flag: '/flags/us.svg', lang: 'en' },
   { code: 'DE', flag: '/flags/de.svg', lang: 'de' },
   { code: 'FR', flag: '/flags/fr.svg', lang: 'fr' },
   { code: 'PL', flag: '/flags/pl.svg', lang: 'pl' },
