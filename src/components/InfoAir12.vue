@@ -1,5 +1,7 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 </script>
 
 <template>
@@ -7,7 +9,7 @@
       <div class="info__img">
          <img src="./icons/People.svg" alt="img">
 		</div>
-      <h1 class="info__title">Bij Guardey vinden we het belangrijk dat we je echt persoonlijk kunnen helpen.</h1>
+      <h1 class="info__title">{{ t('infoAir12.title') }}</h1>
 	</div>
 </template>
 

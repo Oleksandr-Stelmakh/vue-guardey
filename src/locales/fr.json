@@ -9,12 +9,19 @@
       "cyber": "en cas de menace cyber",
       "onze": "Notre",
       "onze-span": "support 24/7",
-      "help": "est toujours prêt à vous aider"
+      "help": "est toujours prêt à vous aider",
+      "info-toggle": "Pourquoi Guardey?"
    },
    "form": {
       "title": "Inscrivez-vous et essayez gratuitement !",
       "subtitle": "Créé en 3 minutes sans paiement",
       "email": "Email",
+      "required-field": "Veuillez remplir ce champ !",
+      "error-text": "Veuillez remplir ce champ !",
+      "hint-text": "L'adresse e-mail doit contenir le symbole \"@\". L'adresse",
+      "hinttext": " manque du symbole \"@\".",
+      "hint": "Entrez la partie de l'adresse après le symbole \"@\". L'adresse",
+      "text": "incomplète.",
       "company": "Nom de l'entreprise",
       "placeholder": "Quel est le nom de votre entreprise ?",
       "reg": "S'inscrire",
@@ -36,6 +43,7 @@
       "passwordInput": {
          "placeholder": "Votre code unique et secret"
       },
+      "required-field": "Veuillez remplir ce champ !",
       "error-text": "Veuillez remplir ce champ !",
       "error-repeat": "Les mots de passe ne correspondent pas",
       "text": "Un bon mot de passe contient au moins",
@@ -51,5 +59,56 @@
    },
    "infoAir5": {
       "title": "Un mot de passe, c'est comme une brosse à dents : il ne faut pas le partager et il faut le renouveler tous les 6 mois."
+   },
+   "infoAir12": {
+      "title": "Chez Guardey, nous pensons qu'il est important de pouvoir vous aider personnellement."
+   },
+   "FormAir12": {
+      "title": "Dites-nous qui vous êtes",
+      "firstNameLabel": "Prénom:",
+      "firstNamePlaceholder": "Votre prénom",
+      "lastNameLabel": "Nom de famille:",
+      "lastNamePlaceholder": "Votre nom de famille",
+      "phoneLabel": "Numéro de téléphone:",
+      "phonePlaceholder": "Comment pouvons-nous vous joindre",
+      "sectorLabel": "Secteur d'activité:",
+      "sectorSelectDefault": "Sélectionnez le secteur qui convient le mieux",
+      "colleagueLabel": "Nombre d'employés:",
+      "colleagueSelectDefault": "Combien de collègues avez-vous?",
+      "buttonNext": "Suivant",
+      "required-field": "Veuillez remplir ce champ !",
+      "required-select": "Ces champs sont obligatoires",
+      "invalid-phone": "Entrez un numéro de téléphone valide",
+      "selectedSector": [
+         "Marketing",
+         "IT",
+         "Sécurité",
+         "Construction",
+         "Gouvernement",
+         "Voyage",
+         "Transport",
+         "Santé",
+         "Finance",
+         "Agriculture",
+         "Énergie",
+         "Élevage/Pêche",
+         "Industrie",
+         "Automobile",
+         "Commerce de détail",
+         "Médias",
+         "Consultants",
+         "Éducation"
+      ]
+   },
+   "FormAir16": {
+      "title": "Vérifiez que c'est vous",
+      "subtitle": "Une dernière petite chose avant de commencer!",
+      "subtitlefirst": "Nous vous avons envoyé",
+      "subtitlelast": "un email contenant un code à 6 chiffres. Entrez ce code ci-dessous.",
+      "firstCodeLabel": "Code de vérification:",
+      "firstCodePlaceholder": "Entrez votre code à 6 chiffres ici",
+      "buttonNext": "Suivant",
+      "required-field": "Veuillez remplir ce champ!",
+      "forms-txt": "Renvoyer le code"
    }
 }

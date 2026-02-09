@@ -9,12 +9,19 @@
       "cyber": "vor einer Cyberbedrohung",
       "onze": "Unser",
       "onze-span": "24/7-Support",
-      "help": "ist immer bereit, Ihnen zu helfen"
+      "help": "ist immer bereit, Ihnen zu helfen",
+      "info-toggle": "Warum Guardey?"
    },
    "form": {
       "title": "Registrieren und kostenlos ausprobieren!",
       "subtitle": "In 3 Minuten ohne Zahlung erstellt",
       "email": "E-Mail",
+      "required-field": "Bitte dieses Feld ausfüllen!",
+      "error-text": "Bitte dieses Feld ausfüllen!",
+      "hint-text": "Die E-Mail-Adresse muss das \"@\"-Zeichen enthalten. Die Adresse",
+      "hinttext": " fehlt das \"@\"-Zeichen.",
+      "hint": "Geben Sie den Teil der Adresse nach dem \"@\"-Zeichen ein. Adresse",
+      "text": "unvollständig.",
       "company": "Firmenname",
       "placeholder": "Wie heißt Ihr Unternehmen?",
       "reg": "Registrieren",
@@ -36,6 +43,7 @@
       "passwordInput": {
          "placeholder": "Dein einzigartiger und geheimer Code"
       },
+      "required-field": "Bitte dieses Feld ausfüllen!",
       "error-text": "Bitte dieses Feld ausfüllen!",
       "error-repeat": "Die Passwörter stimmen nicht überein",
       "text": "Ein gutes Passwort hat mindestens",
@@ -51,5 +59,56 @@
    },
    "infoAir5": {
       "title": "Ein Passwort ist wie eine Zahnbürste: man sollte es nicht teilen und alle 6 Monate erneuern."
+   },
+   "infoAir12": {
+      "title": "Bei Guardey ist es uns wichtig, dass wir Ihnen wirklich persönlich helfen können."
+   },
+   "FormAir12": {
+      "title": "Erzählen Sie uns, wer Sie sind",
+      "firstNameLabel": "Vorname:",
+      "firstNamePlaceholder": "Ihr Vorname",
+      "lastNameLabel": "Nachname:",
+      "lastNamePlaceholder": "Ihr Familienname",
+      "phoneLabel": "Telefonnummer:",
+      "phonePlaceholder": "Wie wir Sie erreichen können",
+      "sectorLabel": "Branche:",
+      "sectorSelectDefault": "Wählen Sie die Branche, die am besten passt",
+      "colleagueLabel": "Anzahl der Mitarbeiter:",
+      "colleagueSelectDefault": "Wie viele Mitarbeiter haben Sie?",
+      "buttonNext": "Weiter",
+      "required-field": "Bitte dieses Feld ausfüllen!",
+      "required-select": "Diese Felder sind erforderlich",
+      "invalid-phone": "Geben Sie eine gültige Telefonnummer ein",
+      "selectedSector": [
+         "Marketing",
+         "IT",
+         "Sicherheit",
+         "Bau",
+         "Regierung",
+         "Reisen",
+         "Transport",
+         "Gesundheitswesen",
+         "Finanzen",
+         "Landwirtschaft",
+         "Energie",
+         "Viehzucht/Fischerei",
+         "Industrie",
+         "Automobil",
+         "Einzelhandel",
+         "Medien",
+         "Berater",
+         "Bildung"
+      ]
+   },
+   "FormAir16": {
+      "title": "Überprüfen Sie, dass Sie es sind",
+      "subtitle": "Nur noch eine kleine Sache, bevor Sie beginnen können!",
+      "subtitlefirst": "Wir haben Ihnen",
+      "subtitlelast": "eine E-Mail mit einem 6-stelligen Code geschickt. Geben Sie diesen Code unten ein.",
+      "firstCodeLabel": "Bestätigungscode:",
+      "firstCodePlaceholder": "Geben Sie hier Ihren 6-stelligen Code ein",
+      "buttonNext": "Weiter",
+      "required-field": "Bitte dieses Feld ausfüllen!",
+      "forms-txt": "Code erneut senden"
    }
 }

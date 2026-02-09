@@ -54,7 +54,7 @@ onBeforeUnmount(() => {
      v-if="isMobile && !isInfoOpen"
      class="info-toggle"
      @click="isInfoOpen = true">
-     Why Guardey?
+     {{ t('info.info-toggle') }}
      <svg class="toggle-up" width="24" height="24" viewBox="0 0 24 24" fill="none">
        <path d="M6 14l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
      </svg>

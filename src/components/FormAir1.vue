@@ -34,14 +34,12 @@ function clearAllErrors() {
 
 function validateEmail(value) {
   if (!value.includes('@')) {
-    return `Адрес электронной почты должен содержать символ "@". 
-В адресе "${value}" отсутствует символ "@".`
+    return `${t('form.hint-text')} "${value}" ${t('form.hinttext')}`
   }
   
     const parts = value.split('@')
   if (!parts[1]) {
-    return `Введите часть адреса после символа "@". 
-Адрес "${value}" неполный.`
+    return `${t('form.hint')} "${value}" ${t('form.text')}`
   }
   return ''
 }
@@ -51,7 +49,7 @@ async function handleSubmit() {
   clearAllErrors()
 
   if (!email.value.trim()) {
-    errors.value.email = 'Заполните это поле'
+    errors.value.email =  t('form.error-text')
     await nextTick()
     emailInput.value?.focus()
     return
@@ -66,7 +64,7 @@ async function handleSubmit() {
   }
 
   if (!address.value.trim()) {
-    errors.value.address = 'Заполните это поле'
+    errors.value.address =  t('form.error-text')
     await nextTick()
     addressInput.value?.focus()
     return
@@ -116,7 +114,7 @@ onBeforeUnmount(() => {
 			<div class="forms__email">
 				<label for="email" class="forms__lable">{{ t('form.email') }}</label>
 				<input
-        title="Заполните это поле" 
+        :title="t('form.required-field')" 
         ref="emailInput" 
         v-model="email" 
         @input="onEmailInput"
@@ -135,7 +133,7 @@ onBeforeUnmount(() => {
 			<div class="forms__address">
 				<label for="address" class="forms__lable">{{ t('form.company') }}</label>
 				<input
-        title="Заполните это поле"
+        :title="t('form.required-field')"
         ref="addressInput" 
         v-model="address"
         @input="clearError('address')"

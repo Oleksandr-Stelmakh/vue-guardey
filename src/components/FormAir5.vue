@@ -128,7 +128,7 @@ const showPasswordRepeat = ref(false)
         <label for="password" class="forms__lable">{{ t('FormAir5.lable') }}</label>
           <div class="input-wrapper">
             <input
-            title="Заполните это поле"
+            :title="t('FormAir5.required-field')"
             ref="passwordInput"
             v-model="password"
             :type="showPassword ? 'text' : 'password'"
@@ -192,7 +192,7 @@ const showPasswordRepeat = ref(false)
         <label for="password" class="forms__lable">{{ t('FormAir5.forms__lable') }}</label>
           <div class="input-wrapper">
             <input
-              title="Заполните это поле"
+              :title="t('FormAir5.required-field')"
               ref="passwordRepeatInput"
               v-model="passwordRepeat"
               :type="showPasswordRepeat ? 'text' : 'password'"

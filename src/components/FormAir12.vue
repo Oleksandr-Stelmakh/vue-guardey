@@ -1,7 +1,10 @@
 <script setup>
-import { ref, watch, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, watch, onMounted, onBeforeUnmount, nextTick, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import phoneCountry from './phoneCountry.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t, tm } = useI18n()
 
 const firstName = ref('')
 const lastName = ref('')
@@ -33,28 +36,28 @@ async function handleSubmit() {
   })
 
   if (!firstName.value.trim()) {
-    errors.value.firstName = 'Заполните это поле'
+    errors.value.firstName = t('FormAir12.required-field')
     await nextTick()
     firstNameInput.value?.focus()
     return
   }
 
   if (!lastName.value.trim()) {
-    errors.value.lastName = 'Заполните это поле'
+    errors.value.lastName = t('FormAir12.required-field')
     await nextTick()
     lastNameInput.value?.focus()
     return
   }
 
   if (!phone.value.trim()) {
-    errors.value.phone = 'Заполните это поле'
+    errors.value.phone = t('FormAir12.required-field')
     await nextTick()
     phoneInput.value?.focus()
     return
   }
 
   if (!isValidPhone(phone.value)) {
-    errors.value.phone = 'Введите корректный номер телефона'
+    errors.value.phone = t('FormAir12.invalid-phone')
     await nextTick()
     phoneInput.value?.focus()
     return
@@ -63,12 +66,12 @@ async function handleSubmit() {
   let selectError = false
 
   if (!selectedSector.value) {
-    errors.value.sector = 'Эти поля обязательны'
+    errors.value.sector = t('FormAir12.required-select')
     selectError = true
   }
 
   if (!selectedColleague.value) {
-    errors.value.colleague = 'Эти поля обязательны'
+    errors.value.colleague = t('FormAir12.required-select')
     selectError = true
   }
 
@@ -99,26 +102,7 @@ watch(passwordRepeat, () => {
 })
 
 const selectedSector = ref("")
-const sectors = [
-  "Marketing",
-  "IT",
-  "Beveiliging",
-  "Bouw",
-  "Overheid",
-  "Reizen",
-  "Transport",
-  "Gezondheidszorg",
-  "Financiën",
-  "Landbouw",
-  "Energie",
-  "Veeteelt/Visserij",
-  "Industrie",
-  "Automotive",
-  "Detailhandel",
-  "Media",
-  "Consultants",
-  "Onderwijs"
-]
+const sectors = computed(() => tm('FormAir12.selectedSector'))
 
 function selectSector(item) {
   selectedSector.value = item
@@ -187,17 +171,17 @@ onBeforeUnmount(() => {
     <div class="form__img">
       <img src="./icons/Step_01.svg" alt="img">
     </div>
-    <h1 class="form__title">Vertel ons wie je bent</h1>
+    <h1 class="form__title">{{ t('FormAir12.title') }}</h1>
     <form action="#" method="post" class="forms">
       <div class="forms__block">
        <div class="forms__name">
-         <label for="text" class="forms__lable">Voornaam:</label>
+         <label for="text" class="forms__lable">{{ t('FormAir12.firstNameLabel') }}</label>
          <input
-         title="Заполните это поле" 
+         :title="t('FormAir12.required-field')"
          ref="firstNameInput"
          type="text" 
          class="forms__input" 
-         placeholder="Jouw roepnaam"  
+         :placeholder="t('FormAir12.firstNamePlaceholder')"  
          v-model="firstName" 
          @input="clearError('firstName')">
          <p v-if="errors.firstName" class="error-text error-animate">
@@ -206,13 +190,13 @@ onBeforeUnmount(() => {
          </p>
        </div>
        <div class="forms__surname">
-         <label for="text" class="forms__lable">Achternaam:</label>
+         <label for="text" class="forms__lable">{{ t('FormAir12.lastNameLabel') }}</label>
          <input
-         title="Заполните это поле"
+         :title="t('FormAir12.required-field')"
          ref="lastNameInput"
          type="text"
          class="forms__input"
-         placeholder="Jouw familienaam"
+         :placeholder="t('FormAir12.lastNamePlaceholder')"
          v-model="lastName"
          @input="clearError('lastName')"/>
          <p v-if="errors.lastName" class="error-text error-animate">
@@ -224,14 +208,14 @@ onBeforeUnmount(() => {
      <div class="phone-field">
         <phoneCountry></phoneCountry>
         <div class="forms__tel">
-          <label for="tel" class="forms__lable">Telefoonnummer:</label>
+          <label for="tel" class="forms__lable">{{ t('FormAir12.phoneLabel') }}</label>
           <input
-          title="Заполните это поле"
+          :title="t('FormAir12.required-field')"
           ref="phoneInput" 
           type="text" 
           inputmode="tel"
           class="forms__input tel" 
-          placeholder="Hoe we je kunnen bereken"
+          :placeholder="t('FormAir12.phonePlaceholder')"
           v-model="phone"
           @input="clearError('phone')">
           <p v-if="errors.phone" class="error-text error-animate">
@@ -242,10 +226,10 @@ onBeforeUnmount(() => {
      </div>
 
      <div class="forms__business select-wrap" :class="{ open: isOpen }">
-        <label class="forms__lable">Bedrijfssector:</label>
+        <label class="forms__lable">{{ t('FormAir12.sectorLabel') }}</label>
         <div class="dropdown" @click="toggleSector">
           <span :class="{ 'is-selected': selectedSector }">
-            {{ selectedSector || "Selecteer de sector die het beste past" }}
+            {{ selectedSector || t('FormAir12.sectorSelectDefault') }}
           </span>
 
           <svg class="select-arrow" width="13" height="6" viewBox="0 0 12 8">
@@ -273,10 +257,10 @@ onBeforeUnmount(() => {
 
       
      <div class="forms__employee select-wrap" :class="{ open: isOpen2 }">
-        <label for="text" class="forms__lable">Aantal werknemers:</label>
+        <label for="text" class="forms__lable">{{ t('FormAir12.colleagueLabel') }}</label>
         <div class="dropdown colleagues"  @click="toggleColleague">
           <span :class="{ 'is-selected': selectedColleague }">
-            {{ selectedColleague || "Hoeveel collega’s heb je?" }}
+            {{ selectedColleague || t('FormAir12.colleagueSelectDefault') }}
           </span>
               
           <svg class="select-arrow2" width="13" height="6" viewBox="0 0 12 8">
@@ -312,7 +296,7 @@ onBeforeUnmount(() => {
       </button>
       <button type="button" class="button__registr" @click.stop="handleSubmit">
         <div class="button__reg">
-          Volgende
+          {{ t('FormAir12.buttonNext') }}
           <div class="button__icon">
             <img src="./icons/Variant.svg" alt="img">
           </div>

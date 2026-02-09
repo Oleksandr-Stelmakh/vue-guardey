@@ -9,12 +9,19 @@
       "cyber": "przed zagrożeniem cybernetycznym",
       "onze": "Nasze",
       "onze-span": "wsparcie 24/7",
-      "help": "jest zawsze gotowe Ci pomóc"
+      "help": "jest zawsze gotowe Ci pomóc",
+      "info-toggle": "Dlaczego Guardey?"
    },
    "form": {
       "title": "Zarejestruj się i wypróbuj za darmo!",
       "subtitle": "Utworzone w 3 minuty bez płatności",
       "email": "Email",
+      "required-field": "Wypełnij to pole!",
+      "error-text": "Wypełnij to pole!",
+      "hint-text": "Adres e-mail musi zawierać symbol \"@\". Adres",
+      "hinttext": " brakuje symbolu \"@\".",
+      "hint": "Wpisz część adresu po symbolu \"@\". Adres",
+      "text": "niekompletny.",
       "company": "Nazwa firmy",
       "placeholder": "Jaka jest nazwa Twojej firmy?",
       "reg": "Zarejestruj się",
@@ -36,6 +43,7 @@
       "passwordInput": {
          "placeholder": "Twój unikalny i tajny kod"
       },
+      "required-field": "Wypełnij to pole!",
       "error-text": "Wypełnij to pole!",
       "error-repeat": "Hasła nie są zgodne",
       "text": "Dobre hasło ma co najmniej",
@@ -51,5 +59,56 @@
    },
    "infoAir5": {
       "title": "Hasło jest jak szczoteczka do zębów: nie należy się nim dzielić i należy je zmieniać co 6 miesięcy."
+   },
+   "infoAir12": {
+      "title": "W Guardey uważamy, że ważne jest, aby móc pomóc Ci osobiście."
+   },
+   "FormAir12": {
+      "title": "Powiedz nam, kim jesteś",
+      "firstNameLabel": "Imię:",
+      "firstNamePlaceholder": "Twoje imię",
+      "lastNameLabel": "Nazwisko:",
+      "lastNamePlaceholder": "Twoje nazwisko",
+      "phoneLabel": "Numer telefonu:",
+      "phonePlaceholder": "Jak możemy się z Tobą skontaktować",
+      "sectorLabel": "Sektor działalności:",
+      "sectorSelectDefault": "Wybierz sektor, który najlepiej pasuje",
+      "colleagueLabel": "Liczba pracowników:",
+      "colleagueSelectDefault": "Ilu masz współpracowników?",
+      "buttonNext": "Dalej",
+      "required-field": "Wypełnij to pole!",
+      "required-select": "Te pola są wymagane",
+      "invalid-phone": "Wprowadź poprawny numer telefonu",
+      "selectedSector": [
+         "Marketing",
+         "IT",
+         "Bezpieczeństwo",
+         "Budownictwo",
+         "Administracja",
+         "Podróże",
+         "Transport",
+         "Opieka zdrowotna",
+         "Finanse",
+         "Rolnictwo",
+         "Energia",
+         "Hodowla/Rybactwo",
+         "Przemysł",
+         "Motoryzacja",
+         "Handel detaliczny",
+         "Media",
+         "Konsultanci",
+         "Edukacja"
+      ]
+   },
+   "FormAir16": {
+      "title": "Zweryfikuj, że to ty",
+      "subtitle": "Jeszcze jedna mała rzecz, zanim zaczniesz!",
+      "subtitlefirst": "Wysłaliśmy Ci",
+      "subtitlelast": "wiadomość e-mail z 6-cyfrowym kodem. Wpisz ten kod poniżej.",
+      "firstCodeLabel": "Kod weryfikacyjny:",
+      "firstCodePlaceholder": "Wpisz tutaj swój 6-cyfrowy kod",
+      "buttonNext": "Dalej",
+      "required-field": "Wypełnij to pole!",
+      "forms-txt": "Wyślij kod ponownie"
    }
 }

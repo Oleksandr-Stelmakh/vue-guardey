@@ -9,12 +9,19 @@
       "cyber": "of a cyber threat",
       "onze": "Our",
       "onze-span": "24/7 support",
-      "help": "is always ready to help you"
+      "help": "is always ready to help you",
+      "info-toggle": "Why Guardey?"
    },
    "form": {
       "title": "Sign up and try for free!",
       "subtitle": "Created in 3 minutes without payment",
       "email": "Email",
+      "required-field": "Please fill out this field!",
+      "error-text": "Please fill out this field!",
+      "hint-text": "The email address must contain the \"@\" symbol. The address",
+      "hinttext": " is missing the \"@\" symbol.",
+      "hint": "Enter the part of the address after the \"@\" symbol. Address",
+      "text": "incomplete.",
       "company": "Company Name",
       "placeholder": "What is your company name?",
       "reg": "Sign Up",
@@ -36,6 +43,7 @@
       "passwordInput": {
          "placeholder": "Your unique and secret code"
       },
+      "required-field": "Please fill out this field!",
       "error-text": "Please fill out this field!",
       "error-repeat": "The passwords do not match",
       "text": "A good password has at least",
@@ -51,5 +59,56 @@
    },
    "infoAir5": {
       "title": "A password is like a toothbrush: you should not share it and you should change it every 6 months."
+   },
+   "infoAir12": {
+      "title": "At Guardey we believe it's important to be able to help you personally."
+   },
+   "FormAir12": {
+      "title": "Tell us who you are",
+      "firstNameLabel": "First name:",
+      "firstNamePlaceholder": "Your given name",
+      "lastNameLabel": "Last name:",
+      "lastNamePlaceholder": "Your family name",
+      "phoneLabel": "Phone number:",
+      "phonePlaceholder": "How we can reach you",
+      "sectorLabel": "Business sector:",
+      "sectorSelectDefault": "Select the sector that best fits",
+      "colleagueLabel": "Number of employees:",
+      "colleagueSelectDefault": "How many colleagues do you have?",
+      "buttonNext": "Next",
+      "required-field": "Please fill out this field!",
+      "required-select": "These fields are required",
+      "invalid-phone": "Enter a valid phone number",
+      "selectedSector": [
+         "Marketing",
+         "IT",
+         "Security",
+         "Construction",
+         "Government",
+         "Travel",
+         "Transport",
+         "Healthcare",
+         "Finance",
+         "Agriculture",
+         "Energy",
+         "Livestock/Fisheries",
+         "Industry",
+         "Automotive",
+         "Retail",
+         "Media",
+         "Consultants",
+         "Education"
+      ]
+   },
+   "FormAir16": {
+      "title": "Verify that you are who you say you are",
+      "subtitle": "One more small thing before you can get started!",
+      "subtitlefirst": "We sent you",
+      "subtitlelast": "an email with a 6-digit code. Enter this code below.",
+      "firstCodeLabel": "Verification code:",
+      "firstCodePlaceholder": "Enter your 6-digit code here",
+      "buttonNext": "Next",
+      "required-field": "Please fill out this field!",
+      "forms-txt": "Resend code"
    }
 }

@@ -2,6 +2,9 @@
 import {} from 'vue'
 import { useRouter } from 'vue-router'
 import { useFormStore } from '@/stores/formStore'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const formStore = useFormStore()
 
@@ -13,30 +16,30 @@ const router = useRouter()
       <div class="form__img">
          <img src="./icons/Step_02.svg" alt="img">
       </div>
-      <h1 class="form__title">Verifieer dat jij het bent</h1>
+      <h1 class="form__title">{{ t('FormAir16.title') }}</h1>
       <div class="form__subtitle">
-         <p>Nog een klein dingetje voordat je kan beginnen!</p>
+         <p>{{ t('FormAir16.subtitle') }}</p>
          <div>
-            We hebben je op <span>{{ formStore.email }}</span> een email gestuurd met daarin 6 cijferige code.
-            Vul deze code hieronder in.
+            {{ t('FormAir16.subtitlefirst') }} <span>{{ formStore.email }}</span> {{ t('FormAir16.subtitlelast') }}
          </div>
       </div>
       <form action="#" method="post" class="forms">
          <div class="forms__code">
-            <label for="text" class="forms__lable">Verificatiecode:</label>
+            <label for="text" class="forms__lable">{{ t('FormAir16.firstCodeLabel') }}</label>
             <input 
+            :title="t('FormAir16.required-field')"
             type="text"
             inputmode="numeric"
             maxlength="6"
             autocomplete="one-time-code" 
             class="forms__input" 
-            placeholder="Vul hier je zescijferige code in">
+            :placeholder="t('FormAir16.firstCodePlaceholder')" >
         </div>
       </form>
       <div class="form__button button button-row">
          <button type="button" class="button__registr">
             <span class="button__reg">
-               Volgende
+               {{ t('FormAir16.buttonNext') }}
                <span class="button__icon">
                   <img src="./icons/Variant.svg" alt="img">
                </span>
@@ -44,7 +47,7 @@ const router = useRouter()
          </button>
       </div>
       <div class="forms__txt">
-         <a href="#">Verzend code opnieuw</a>
+         <a href="#">{{ t('FormAir16.forms-txt') }}</a>
       </div>
    </div>       
 </template>

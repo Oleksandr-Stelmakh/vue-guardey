@@ -9,12 +9,19 @@
       "cyber": "bij een cyberdreiging",
       "onze": "Onze",
       "onze-span": "24/7 support",
-      "help": "staat altijd klaar om je te helpen"
+      "help": "staat altijd klaar om je te helpen",
+      "info-toggle": "Why Guardey?"
    },
    "form": {
       "title": "Meld je aan en probeer gratis!",
       "subtitle": "Binnen 3 minuten zonder betaling aangemaakt",
       "email": "Email",
+      "required-field": "Vul dit veld in!",
+      "error-text": "Vul dit veld in!",
+      "hint-text": "Het e-mailadres moet voorafgegaan worden door het \"@\"-teken. Het adres",
+      "hinttext": " mist het \"@\"-teken.",
+      "hint": "Voer het gedeelte van het adres in na het \"@\"-symbool. Adres",
+      "text": "onvolledig.",
       "company": "Bedrijfsnaam",
       "placeholder": "Wat is de naam van je bedrijf?",
       "reg": "Aanmelden",
@@ -39,6 +46,7 @@
       "passwordInput": {
          "placeholder": "Jouw unieke en geheime code"
       },
+      "required-field": "Vul dit veld in!",
       "error-text": "Vul dit veld in!",
       "error-repeat": "The passwords do not match",
       "text": "Een goed wachtwoord heeft minimaal",
@@ -51,5 +59,56 @@
          "placeholder": "Jouw unieke en geheime code"
       },
       "reg": " Volgende"
+   },
+   "infoAir12": {
+      "title": "Bij Guardey vinden we het belangrijk dat we je echt persoonlijk kunnen helpen."
+   },
+   "FormAir12": {
+      "title": "Vertel ons wie je bent",
+      "firstNameLabel": "Voornaam:",
+      "firstNamePlaceholder": "Jouw roepnaam",
+      "lastNameLabel": "Achternaam:",
+      "lastNamePlaceholder": "Jouw familienaam",
+      "phoneLabel": "Telefoonnummer:",
+      "phonePlaceholder": "Hoe we je kunnen bereken",
+      "sectorLabel": "Bedrijfssector:",
+      "sectorSelectDefault": "Selecteer de sector die het beste past",
+      "colleagueLabel": "Aantal werknemers:",
+      "colleagueSelectDefault": "Hoeveel collega’s heb je?",
+      "buttonNext": "Volgende",
+      "required-field": "Vul dit veld in!",
+      "required-select": "Deze velden zijn verplicht",
+      "invalid-phone": "Voer een geldig telefoonnummer in",
+      "selectedSector": [
+         "Marketing",
+         "IT",
+         "Beveiliging",
+         "Bouw",
+         "Overheid",
+         "Reizen",
+         "Transport",
+         "Gezondheidszorg",
+         "Financiën",
+         "Landbouw",
+         "Energie",
+         "Veeteelt/Visserij",
+         "Industrie",
+         "Automotive",
+         "Detailhandel",
+         "Media",
+         "Consultants",
+         "Onderwijs"
+      ]
+   },
+   "FormAir16": {
+      "title": "Verifieer dat jij het bent",
+      "subtitle": "Nog een klein dingetje voordat je kan beginnen!",
+      "subtitlefirst": "We hebben je op",
+      "subtitlelast": "een email gestuurd met daarin 6 cijferige code. Vul deze code hieronder in.",
+      "firstCodeLabel": "Verificatiecode:",
+      "firstCodePlaceholder": "Vul hier je zescijferige code in",
+      "buttonNext": "Volgende",
+      "required-field": "Vul dit veld in!",
+      "forms-txt": "Verzend code opnieuw"
    }
 }
