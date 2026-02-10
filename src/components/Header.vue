@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()
@@ -15,12 +15,17 @@ const countries = [
   { code: 'UA', flag: '/flags/ua.svg', lang: 'ua' },
 ]
 
-const selected = ref(countries[0])
+// const selected = ref(countries[0])
 const showList = ref(false)
 const selectRef = ref(null)
 
+const selected = computed(() => {
+  return countries.find(c => c.lang === locale.value) || countries[0]
+})
+
+
 const selectCountry = (country) => {
-  selected.value = country
+  // selected.value = country
   locale.value = country.lang 
   localStorage.setItem('locale', country.lang)
   showList.value = false
