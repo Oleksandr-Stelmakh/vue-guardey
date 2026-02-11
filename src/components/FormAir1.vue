@@ -110,7 +110,7 @@ onBeforeUnmount(() => {
   <div class="form__container">
 		<h1 class="form__title">{{ t('form.title') }}</h1>
 		<div class="form__subtitle">{{ t('form.subtitle') }}</div>
-		<form class="forms" @submit.prevent="validateEmail">
+		<form class="forms" @submit.prevent="handleSubmit">
 			<div class="forms__email">
 				<label for="email" class="forms__lable">{{ t('form.email') }}</label>
 				<input
