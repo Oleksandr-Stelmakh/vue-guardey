@@ -67,9 +67,9 @@ onBeforeUnmount(() => {
    &__container {
       display: flex;
       flex-direction: column;
-      gap: 50px;
+      gap: 40px;
       padding: 0px 10px;
-      gap: calc(10px + (50 - 10) * (100vw - 320px) / (1280 - 320));
+      gap: calc(10px + (40 - 10) * (100vw - 320px) / (1280 - 320));
    }
 
    &__title {
@@ -89,7 +89,7 @@ onBeforeUnmount(() => {
    &__list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 10px;
       font-weight: 400;
       font-size: 20px;
       line-height: 1.5;
@@ -112,6 +112,14 @@ onBeforeUnmount(() => {
    background: url('./icons/check.svg') 0 7px no-repeat;
    padding: 0px 0px 0px 27px;
 }
+
+@media (max-width: 991.98px) {
+   .info__list li {
+   align-self: flex-start;
+   background: url('./icons/check.svg') 0 2px no-repeat;
+   padding: 0px 0px 0px 27px;
+}
+  }
 
 .info--mobile {
   @media (max-width: 991.98px) {
