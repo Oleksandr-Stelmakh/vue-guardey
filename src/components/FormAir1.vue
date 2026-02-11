@@ -119,6 +119,8 @@ onBeforeUnmount(() => {
         v-model="email" 
         @input="onEmailInput"
         :class="{ error: errors.email }"
+        type="email"
+        required
         class="forms__input" 
         :placeholder="t('forms__input.placeholder')">
         <p v-if="errors.email" class="error-text error-animate">
@@ -137,7 +139,9 @@ onBeforeUnmount(() => {
         ref="addressInput" 
         v-model="address"
         @input="clearError('address')"
-        :class="{ error: errors.address }" 
+        :class="{ error: errors.address }"
+        type="email"
+        required 
         class="forms__input" 
         :placeholder="t('form.placeholder')">
         <p v-if="errors.address" class="error-text error-animate">
