@@ -110,7 +110,7 @@ onBeforeUnmount(() => {
   <div class="form__container">
 		<h1 class="form__title">{{ t('form.title') }}</h1>
 		<div class="form__subtitle">{{ t('form.subtitle') }}</div>
-		<form class="forms">
+		<form class="forms" @submit.prevent="handleSubmit">
 			<div class="forms__email">
 				<label for="email" class="forms__lable">{{ t('form.email') }}</label>
 				<input
@@ -140,7 +140,7 @@ onBeforeUnmount(() => {
         v-model="address"
         @input="clearError('address')"
         :class="{ error: errors.address }"
-        type="email"
+        type="text"
         required 
         class="forms__input" 
         :placeholder="t('form.placeholder')">
@@ -154,7 +154,7 @@ onBeforeUnmount(() => {
 			</div>
 		</form>
 		<div class="form__button button">
-			<button type="button" class="button__registr" @click="handleSubmit">
+			<button type="submit" class="button__registr" @click="handleSubmit">
 				<a href="#" class="button__reg">
 					{{ t('form.reg') }}
 					<img src="./icons/Variant.svg" alt="img">
