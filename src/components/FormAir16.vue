@@ -1,14 +1,10 @@
 <script setup>
-import {} from 'vue'
-import { useRouter } from 'vue-router'
 import { useFormStore } from '@/stores/formStore'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-
 const formStore = useFormStore()
 
-const router = useRouter()
 </script>
 
 <template>
@@ -35,23 +31,16 @@ const router = useRouter()
             class="forms__input" 
             :placeholder="t('FormAir16.firstCodePlaceholder')" >
         </div>
+        <button type="button" class="button__registr">
+              {{ t('FormAir16.buttonNext') }}
+                 <img src="./icons/Variant.svg" alt="img">
+        </button>
       </form>
-      <div class="form__button button button-row">
-         <button type="button" class="button__registr">
-            <span class="button__reg">
-               {{ t('FormAir16.buttonNext') }}
-               <span class="button__icon">
-                  <img src="./icons/Variant.svg" alt="img">
-               </span>
-            </span>
-         </button>
-      </div>
       <div class="forms__txt">
          <a href="#">{{ t('FormAir16.forms-txt') }}</a>
       </div>
    </div>       
 </template>
-
 
 <style lang="scss" scoped>
 .form {
@@ -104,6 +93,9 @@ span:hover {
 }
 
 .forms {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
 
    &__code {
       width: 100%;
@@ -148,19 +140,8 @@ span:hover {
    display: flex;
    gap: 16px;
    padding: 5px 0px 0px 0px;
-   
 
    &__registr {
-      width: 100%;
-      padding: 16px 0px;
-      background-color: var(--color-lime);
-      border-radius: var(--border-input);
-      transition: background-color 0.3s ease 0s;
-      border: none;
-      cursor: pointer;
-   }
-
-   &__reg {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -169,21 +150,22 @@ span:hover {
       width: 100%;
       height: 100%;
       color: var(--color-green);
-      transition: color 0.3s ease;
+      padding: 16px 0px;
+      background-color: var(--color-lime);
+      border-radius: var(--border-input);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border: none;
+      cursor: pointer;
    }
 }
 
-.button__reg img {
+.button__registr img {
    position: relative;
-   top: 4px;
-   
+   top: 2px;
 }
 
 .button__registr:hover {
   background-color: var(--color-hover);
-}
-
-.button__registr:hover .button__reg {
   color: var(--color-fff);
 }
 

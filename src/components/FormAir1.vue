@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { ref, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { useFormStore } from '@/stores/formStore'
@@ -73,17 +73,29 @@ async function handleSubmit() {
   router.push('/PageAir5')
 }
 
-function onEmailInput() {
+// function onEmailInput() {
   
+//   errors.value.email = ''
+
+//   if (!email.value.trim()) {
+//     emailHint.value = ''
+//     return
+//   }
+
+//   emailHint.value = validateEmail(email.value)
+// }
+
+watch(email, (val) => {
   errors.value.email = ''
 
-  if (!email.value.trim()) {
+  if (!val.trim()) {
     emailHint.value = ''
     return
   }
 
-  emailHint.value = validateEmail(email.value)
-}
+  emailHint.value = validateEmail(val)
+})
+
 
 
 function handleClickOutside(e) {
@@ -110,17 +122,15 @@ onBeforeUnmount(() => {
   <div class="form__container">
 		<h1 class="form__title">{{ t('form.title') }}</h1>
 		<div class="form__subtitle">{{ t('form.subtitle') }}</div>
-		<form class="forms" @submit.prevent="handleSubmit">
+		<form class="forms" @submit.prevent="handleSubmit" novalidate>
 			<div class="forms__email">
 				<label for="email" class="forms__lable">{{ t('form.email') }}</label>
 				<input
         :title="t('form.required-field')" 
         ref="emailInput" 
         v-model="email" 
-        @input="onEmailInput"
         :class="{ error: errors.email }"
-        type="email"
-        required
+        type="text"
         class="forms__input" 
         :placeholder="t('forms__input.placeholder')">
         <p v-if="errors.email" class="error-text error-animate">
@@ -140,8 +150,7 @@ onBeforeUnmount(() => {
         v-model="address"
         @input="clearError('address')"
         :class="{ error: errors.address }"
-        type="text"
-        required 
+        type="text" 
         class="forms__input" 
         :placeholder="t('form.placeholder')">
         <p v-if="errors.address" class="error-text error-animate">
@@ -152,21 +161,17 @@ onBeforeUnmount(() => {
 			<div class="forms__btn">
 				<a href="#" class="forms__btn-btn">{{ t('forms.btn-btn')}}</a>
 			</div>
+      <div class="form__button button">
+        <button type="submit" class="button__registr button__reg">
+            {{ t('form.reg') }}
+            <img src="./icons/Variant.svg" alt="img">
+        </button>
+        <div class="button__login button__log">
+            <img src="./icons/Group.svg" alt="img">
+            {{ t('form.log') }}
+        </div>
+      </div>
 		</form>
-		<div class="form__button button">
-			<button type="submit" class="button__registr" @click="handleSubmit">
-				<a href="#" class="button__reg">
-					{{ t('form.reg') }}
-					<img src="./icons/Variant.svg" alt="img">
-				</a>
-			</button>
-			<div class="button__login">
-				<a href="#" class="button__log">
-					<img src="./icons/Group.svg" alt="img">
-					{{ t('form.log') }}
-				</a>
-			</div>
-		</div>
 		<div class="form__txt">
 			<p class="txt">
 				{{ t('form.txt') }} <br>
@@ -306,7 +311,7 @@ input.error {
   padding: 6px 10px;
   margin-top: 8px;
   background: var(--color-fff);
-  color: red;
+  color: var(--color-error-text);
   font-size: 13px;
   border: 1px solid var(--color-title);
   border-radius: 5px;
@@ -367,52 +372,42 @@ input.error {
 
 .button {
 
-   &__registr {
-      padding: 16px 0px;
-      background-color: var(--color-lime);
-      border-radius: var(--border-input);
-      transition: background-color 0.3s ease 0s;
-   }
-
-   &__reg,
-   &__log {
+   &__registr,
+   &__login {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       font-weight: 600;
-      width: 100%;
-      height: 100%;
-      color: var(--color-green);
-      transition: color 0.3s ease;
-   }
-
-   &__login {
-      padding: 17px 0px;
-      background-color: var(--color-light-green);
-      border: 2px solid var(--color-green);
+      padding: 16px 0px;
+      background-color: var(--color-lime);
       border-radius: var(--border-input);
-      transition: background-color 0.3s ease 0s;
+      border: none;
+      cursor: pointer;
+      color: var(--color-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background-color 0.3s ease, color 0.3s ease;
    }
+}
+.button__login {
+  background-color: var(--color-light-green);
+  border: 2px solid var(--color-green);
 }
 
 .button__registr:hover,
 .button__login:hover {
   background-color: var(--color-hover);
-}
-
-.button__registr:hover .button__reg,
-.button__login:hover .button__log {
   color: var(--color-fff);
 }
-
 
 .button__registr:hover img,
 .button__login:hover img {
   filter: brightness(0) invert(1);
   transition: filter 0.3s ease;
 }
-
 
 .button__reg img {
    position: relative;

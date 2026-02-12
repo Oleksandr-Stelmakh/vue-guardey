@@ -285,24 +285,20 @@ onBeforeUnmount(() => {
          {{ errors.colleague }}
         </p>
      </div>
+     <div class="button">
+       <button type="button" class="button__сomeback" @click="router.push('/PageAir5')">
+         <svg class="icon-back" width="50" height="50" viewBox="0 0 50 50" fill="none">
+           <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="1"/>
+           <path d="M35 24H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+           <path d="M22 18L16 24L22 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+         </svg>
+       </button>
+       <button type="button" class="button__registr" @click.stop="handleSubmit">
+           {{ t('FormAir12.buttonNext') }}
+             <img src="./icons/Variant.svg" alt="img">
+       </button>
+     </div>
     </form>
-    <div class="button">
-      <button type="button" class="button__сomeback" @click="router.push('/PageAir5')">
-        <svg class="icon-back" width="50" height="50" viewBox="0 0 50 50" fill="none">
-          <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="1"/>
-          <path d="M35 24H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M22 18L16 24L22 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button type="button" class="button__registr" @click.stop="handleSubmit">
-        <div class="button__reg">
-          {{ t('FormAir12.buttonNext') }}
-          <div class="button__icon">
-            <img src="./icons/Variant.svg" alt="img">
-          </div>
-        </div>
-      </button>
-    </div>
  </div>
 </template>
 
@@ -427,7 +423,7 @@ onBeforeUnmount(() => {
   background: var(--color-fff);
   color: var(--color-error-text);
   font-size: 13px;
-  border: 1px solid black;
+  border: 1px solid var(--color-thumb);
   border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
   z-index: 10;
@@ -484,7 +480,6 @@ onBeforeUnmount(() => {
     transform: translateY(0);
   }
 }
-
 
 .select-wrap {
   position: relative;
@@ -546,7 +541,7 @@ onBeforeUnmount(() => {
   top: 100%;
   left: 0;
   right: 0;
-  background: white;
+  background: var(--color-fff);
   border-radius: 0px 0px 20px 20px;
   border: 1px solid var(--color-title);
   border-top: none;
@@ -558,7 +553,6 @@ onBeforeUnmount(() => {
 .scroll-area {
   height: 100%;
   overflow-y: auto;
-  padding-right: 8px;
 }
 
 .dropdown-enter-active,
@@ -576,17 +570,14 @@ onBeforeUnmount(() => {
   opacity: 1;
 }
 
-.dropdown-list {
-  box-shadow: 0px 8px 20px rgba(0,0,0,0.06);
-}
 .dropdown-list::-webkit-scrollbar {
    width: 3px;
 }
 .dropdown-list::-webkit-scrollbar-track {
-  background: #b3b6b4;
+  background: var(--color-dropdown);
 }
 .dropdown-list::-webkit-scrollbar-thumb {
-  background: #050505;
+  background: var(--color-thumb);
   border-radius: 5px;
 }
 
@@ -595,14 +586,14 @@ onBeforeUnmount(() => {
   cursor: pointer;
   transition: background 0.2s ease;
   font-size: 14px;
-  border-bottom: 1px solid #cccfcd;
+  border-bottom: 1px solid var(--color-border-top);
   max-width: 412px;
   position: relative;
   left: 8px;
 }
 
 .dropdown-list li:first-child {
-  border-top: 1px solid #cccfcd;
+  border-top: 1px solid var(--color-border-top);
 }
 
 .dropdown-list li:last-child {
@@ -618,14 +609,6 @@ onBeforeUnmount(() => {
    gap: 16px;
 
    &__registr {
-      width: 100%;
-      padding: 16px 0px;
-      background-color: var(--color-lime);
-      border-radius: var(--border-input);
-      transition: background-color 0.3s ease 0s;
-   }
-
-   &__reg {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -634,22 +617,22 @@ onBeforeUnmount(() => {
       width: 100%;
       height: 100%;
       color: var(--color-green);
-      transition: color 0.3s ease;
+      padding: 16px 0px;
+      background-color: var(--color-lime);
+      border-radius: var(--border-input);
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
    }
 }
 
-.button__reg img {
+.button__registr img {
    position: relative;
-   top: 4px;
-   
+   top: 2px;
 }
 
 .button__registr:hover {
+   color: var(--color-fff);
   background-color: var(--color-hover);
-}
-
-.button__registr:hover .button__reg {
-  color: var(--color-fff);
 }
 
 .button__registr:hover img {
@@ -657,9 +640,15 @@ onBeforeUnmount(() => {
   transition: filter 0.3s ease;
 }
 
+.button__сomeback {
+  display: flex;
+  align-items: end;
+}
+
 .icon-back {
   color: var(--color-green);   
-  transition: 0.2s;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .icon-back:hover {

@@ -221,26 +221,22 @@ const showPasswordRepeat = ref(false)
             {{ t('FormAir5.error-text') }}
           </div>
       </div>
+      <div class="button">
+        <button type="button" class="button__сomeback" @click="router.push('/PageAir1')">
+          <svg class="icon-back" width="50" height="50" viewBox="0 0 50 50" fill="none">
+            <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="1"/>
+            <path d="M35 24H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M22 18L16 24L22 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+  
+        <button type="button" class="button__registr" @click="handleSubmit">
+            {{ t('FormAir5.reg') }}
+              <img src="./icons/Variant.svg" alt="img">
+        </button>
+      </div>
     </form>
 
-    <div class="button">
-      <button type="button" class="button__сomeback" @click="router.push('/PageAir1')">
-        <svg class="icon-back" width="50" height="50" viewBox="0 0 50 50" fill="none">
-          <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="1"/>
-          <path d="M35 24H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M22 18L16 24L22 30" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-
-      <button type="button" class="button__registr" @click="handleSubmit">
-        <div class="button__reg">
-          {{ t('FormAir5.reg') }}
-          <div class="button__icon">
-            <img src="./icons/Variant.svg" alt="img">
-          </div>
-        </div>
-      </button>
-    </div>
   </div>
 </template>
 
@@ -328,7 +324,7 @@ const showPasswordRepeat = ref(false)
   background: var(--color-fff);
   color: var(--color-error-text);
   font-size: 13px;
-  border: 1px solid black;
+  border: 1px solid var(--color-thumb);
   border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
   z-index: 10;
@@ -361,7 +357,6 @@ const showPasswordRepeat = ref(false)
 .forms__input.error-danger {
   border-color: var(--color-error);
 }
-
 
 .error-text::before {
   content: '';
@@ -516,16 +511,7 @@ const showPasswordRepeat = ref(false)
    gap: 16px;
    padding: 5px 0px 0px 0px;
    
-
    &__registr {
-      width: 100%;
-      padding: 16px 0px;
-      background-color: var(--color-lime);
-      border-radius: var(--border-input);
-      transition: background-color 0.3s ease 0s;
-   }
-
-   &__reg {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -534,22 +520,27 @@ const showPasswordRepeat = ref(false)
       width: 100%;
       height: 100%;
       color: var(--color-green);
-      transition: color 0.3s ease;
+      padding: 16px 0px;
+      background-color: var(--color-lime);
+      border-radius: var(--border-input);
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
    }
 }
 
-.button__reg img {
+.button__registr {
    position: relative;
-   top: 4px;
-   
+   top: 2px;
 }
 
 .button__registr:hover {
   background-color: var(--color-hover);
+  color: var(--color-fff);
 }
 
-.button__registr:hover .button__reg {
-  color: var(--color-fff);
+.button__сomeback {
+  display: flex;
+  align-items: end;
 }
 
 .button__registr:hover img {
@@ -559,7 +550,8 @@ const showPasswordRepeat = ref(false)
 
 .icon-back {
   color: var(--color-green);   
-  transition: 0.2s;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .icon-back:hover {
