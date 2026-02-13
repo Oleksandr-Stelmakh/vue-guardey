@@ -1,24 +1,22 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-const phone = ref('')
-const selectedCountry = ref({
-  code: '+380',
-  flag: '/flags/gb.svg',
-  name: 'Ukraine'
-})
-
 const isCountryOpen = ref(false)
 
 const countries = [
-  { name: 'Ukraine', code: '+380', flag: '/flags/ua.svg' },
-  { name: 'Poland', code: '+48', flag: '/flags/pl.svg' },
-  { name: 'Germany', code: '+49', flag: '/flags/de.svg' },
-  { name: 'France', code: '+33', flag: '/flags/fr.svg' },
-  { name: 'USA', code: '+1', flag: '/flags/us.svg' },
   { name: 'NL', code: '+31', flag: '/flags/nl.svg' },
   { name: 'UK',code: '+44', flag: '/flags/gb.svg' },
+  { name: 'USA', code: '+1', flag: '/flags/us.svg' },
+  { name: 'Germany', code: '+49', flag: '/flags/de.svg' },
+  { name: 'France', code: '+33', flag: '/flags/fr.svg' },
+  { name: 'Poland', code: '+48', flag: '/flags/pl.svg' },
+  { name: 'Ukraine', code: '+380', flag: '/flags/ua.svg' },
 ]
+
+const selectedCountry = ref(
+  countries.find(country => country.code === '+31') || countries[0]
+)
+
 
 function toggleCountry() {
   isCountryOpen.value = !isCountryOpen.value
@@ -86,8 +84,6 @@ onBeforeUnmount(() => {
     </div>
   </div>
 </div>
-
-
 </template>
 
 <style lang="scss" scoped>

@@ -73,18 +73,6 @@ async function handleSubmit() {
   router.push('/PageAir5')
 }
 
-// function onEmailInput() {
-  
-//   errors.value.email = ''
-
-//   if (!email.value.trim()) {
-//     emailHint.value = ''
-//     return
-//   }
-
-//   emailHint.value = validateEmail(email.value)
-// }
-
 watch(email, (val) => {
   errors.value.email = ''
 
@@ -382,7 +370,6 @@ input.error {
       padding: 16px 0px;
       background-color: var(--color-lime);
       border-radius: var(--border-input);
-      border: none;
       cursor: pointer;
       color: var(--color-green);
       display: flex;

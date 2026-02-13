@@ -154,7 +154,6 @@ span:hover {
       background-color: var(--color-lime);
       border-radius: var(--border-input);
       transition: background-color 0.3s ease, color 0.3s ease;
-      border: none;
       cursor: pointer;
    }
 }

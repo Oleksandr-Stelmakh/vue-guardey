@@ -4,7 +4,6 @@ import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()
 
-
 const countries = [
   { code: 'NL', flag: '/flags/nl.svg', lang: 'nl' },
   { code: 'UK', flag: '/flags/gb.svg', lang: 'uk' },
@@ -15,7 +14,6 @@ const countries = [
   { code: 'UA', flag: '/flags/ua.svg', lang: 'ua' },
 ]
 
-// const selected = ref(countries[0])
 const showList = ref(false)
 const selectRef = ref(null)
 
@@ -25,7 +23,6 @@ const selected = computed(() => {
 
 
 const selectCountry = (country) => {
-  // selected.value = country
   locale.value = country.lang 
   localStorage.setItem('locale', country.lang)
   showList.value = false
