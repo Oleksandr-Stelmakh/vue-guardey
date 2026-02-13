@@ -393,7 +393,7 @@ onBeforeUnmount(() => {
 
  @media (min-width: 768px) {
   .button {
-    padding: 5px 0px 0px 0px;
+    padding: 5px 0px 20px 0px;
   }
 }
 
@@ -537,15 +537,13 @@ onBeforeUnmount(() => {
 }
 
 .list-wrap {
-  position:absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
+  position:relative;
+  bottom: 11px;
   background: var(--color-fff);
   border-radius: 0px 0px 20px 20px;
   border: 1px solid var(--color-title);
-  border-top: none;
-  height: 230px;
+  border-top: none; 
+  max-height: 230px; 
   overflow: hidden;
   z-index: 20;
 }
