@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="page1">
     <Header />
     <Main />
   </div>

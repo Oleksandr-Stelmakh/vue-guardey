@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <div class="page">
+  <div class="page2">
      <Header />
      <MainAir5 />
   </div>
