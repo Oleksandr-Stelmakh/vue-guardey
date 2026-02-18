@@ -76,7 +76,7 @@ async function handleSubmit() {
   }
 
   if (selectError) return
-  router.push('/PageAir16')
+  router.push('/step4')
 }
 
 
@@ -286,7 +286,7 @@ onBeforeUnmount(() => {
         </p>
      </div>
      <div class="button">
-       <button type="button" class="button__сomeback" @click="router.push('/PageAir5')">
+       <button type="button" class="button__сomeback" @click="router.push('/step2')">
          <svg class="icon-back" width="50" height="50" viewBox="0 0 50 50" fill="none">
            <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="1"/>
            <path d="M35 24H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>

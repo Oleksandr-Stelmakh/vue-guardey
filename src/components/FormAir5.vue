@@ -75,7 +75,7 @@ const handleSubmit = async () => {
     passwordInput.value?.focus()
     return
   }
-  router.push('/PageAir12')
+  router.push('/step3')
 }
 
 
@@ -222,7 +222,7 @@ const showPasswordRepeat = ref(false)
           </div>
       </div>
       <div class="button">
-        <button type="button" class="button__сomeback" @click="router.push('/PageAir1')">
+        <button type="button" class="button__сomeback" @click="router.push('/step1')">
           <svg class="icon-back" width="50" height="50" viewBox="0 0 50 50" fill="none">
             <circle cx="24" cy="24" r="23" stroke="currentColor" stroke-width="1"/>
             <path d="M35 24H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>

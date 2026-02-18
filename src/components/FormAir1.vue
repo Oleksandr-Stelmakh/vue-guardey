@@ -70,7 +70,7 @@ async function handleSubmit() {
     return
   }
   formStore.setEmail(email.value)
-  router.push('/PageAir5')
+  router.push('/step2')
 }
 
 watch(email, (val) => {
