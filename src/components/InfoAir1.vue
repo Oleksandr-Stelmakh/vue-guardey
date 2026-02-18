@@ -7,7 +7,7 @@ const { t } = useI18n()
 const isMobile = ref(false)
 const isInfoOpen = ref(false)
 
-let mediaQuery
+let mediaQuery = null
 
 function handleMediaChange(e) {
   isMobile.value = e.matches
@@ -24,7 +24,9 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  mediaQuery.removeEventListener('change', handleMediaChange)
+  if (mediaQuery) {
+    mediaQuery.removeEventListener('change', handleMediaChange)
+  }
 })
 </script>
 
@@ -68,7 +70,7 @@ onBeforeUnmount(() => {
       display: flex;
       flex-direction: column;
       gap: 40px;
-      padding: 0px 10px;
+      padding: 10px 10px;
       gap: calc(10px + (40 - 10) * (100vw - 320px) / (1280 - 320));
    }
 
@@ -95,8 +97,10 @@ onBeforeUnmount(() => {
       line-height: 1.5;
       color: var(--color-fff);
       font-size: calc(16px + (20 - 16) * ((100vw - 768px) / (1280 - 768)));
+      padding-bottom: 20px;
+  }
    }
-}
+
 
 .info__img img {
    max-width: 100%;
@@ -108,18 +112,22 @@ onBeforeUnmount(() => {
 }
 
 .info__list li {
-   align-self: flex-start;
-   background: url('./icons/check.svg') 0 7px no-repeat;
-   padding: 0px 0px 0px 27px;
+   position: relative;
+   padding-left: 30px;
 }
 
-@media (max-width: 991.98px) {
-   .info__list li {
-   align-self: flex-start;
-   background: url('./icons/check.svg') 0 2px no-repeat;
-   padding: 0px 0px 0px 27px;
+.info__list li::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 18px;
+   height: 18px;
+   background: url('./icons/check.svg') no-repeat center;
+   background-size: contain;
 }
-  }
+
 
 .info--mobile {
   @media (max-width: 991.98px) {

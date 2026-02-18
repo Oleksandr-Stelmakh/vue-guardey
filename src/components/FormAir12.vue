@@ -318,7 +318,7 @@ onBeforeUnmount(() => {
    &__img {
       display: flex;
       justify-content: center;
-      padding: 60px 0px 0px 0px
+      padding-top: 60px;
    }
 
    &__title {
@@ -537,13 +537,13 @@ onBeforeUnmount(() => {
 }
 
 .list-wrap {
-  position:relative;
+  position: relative;
   bottom: 11px;
   background: var(--color-fff);
   border-radius: 0px 0px 20px 20px;
   border: 1px solid var(--color-title);
   border-top: none; 
-  max-height: 230px; 
+  height: 230px; 
   overflow: hidden;
   z-index: 20;
 }

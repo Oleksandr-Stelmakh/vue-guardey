@@ -391,7 +391,6 @@ const showPasswordRepeat = ref(false)
    &__img {
       display: flex;
       justify-content: center;
-      padding: 60px 0px 0px 0px;
    }
 
    &__title {
@@ -500,16 +499,30 @@ const showPasswordRepeat = ref(false)
   border-color: var(--color-title);
 }
 
+ @media (min-width: 992px) {
+  .form__img {
+    padding-top: 60px;
+   }
+   .button {
+    padding: 5px 0px 20px 0px;
+   }
+}
+
   @media (max-width: 991.98px) {
    .forms__info {
     margin-top: calc(0px + (-10 - 0) * ((100vw - 300px) / (991.98 - 300)));
+   }
+   .form__img {
+    padding-top: 20px;
+   }
+   .button {
+    padding: 5px 0px 20px 0px;
    }
 }
 
 .button {
    display: flex;
    gap: 16px;
-   padding: 5px 0px 0px 0px;
    
    &__registr {
       display: flex;

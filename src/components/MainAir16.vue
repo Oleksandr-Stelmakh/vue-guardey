@@ -31,7 +31,7 @@
       align-items: center;
       background-color: var(--color-light-green);
       flex: 1;
-      padding: 0px 7px;
+      padding: 50px 7px 0px 7px;
    }
  }
 
@@ -43,15 +43,19 @@
       align-items: center;
       background-color: var(--color-green);
       flex: 1;
-      padding: 0px 7px;
+      padding: 50px 7px 0px 7px;
    }
+   .main{
+    padding-top: 72px;
+  }
 }
 
   @media (max-width: 991.98px) {
-   main {
+   .main {
       flex-direction: column;
+      padding-top: 52px;
    }
-     .info {
+   .info {
     display: none;
   }
 }

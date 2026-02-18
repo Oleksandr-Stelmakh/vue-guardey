@@ -150,14 +150,14 @@ onBeforeUnmount(() => {
 				<a href="#" class="forms__btn-btn">{{ t('forms.btn-btn')}}</a>
 			</div>
       <div class="form__button button">
-        <button type="submit" class="button__registr button__reg">
+        <button type="submit" class="button__registr">
             {{ t('form.reg') }}
             <img src="./icons/Variant.svg" alt="img">
         </button>
-        <div class="button__login button__log">
+        <button type="submit" class="button__login">
             <img src="./icons/Group.svg" alt="img">
             {{ t('form.log') }}
-        </div>
+        </button>
       </div>
 		</form>
 		<div class="form__txt">
@@ -209,6 +209,7 @@ onBeforeUnmount(() => {
    &__txt {
       display: flex;
       justify-content: center; 
+      padding-bottom: 20px;
    }
 } 
 .form__txt a {
@@ -222,7 +223,7 @@ onBeforeUnmount(() => {
 
 @media (max-width: 991.98px) {
   .form__txt {
-    padding-bottom: 50px;
+    padding-bottom: 75px;
     font-size: calc(13px + (16 - 13) * ((100vw - 300px) / (991.98 - 300)));
   }
   }
@@ -382,6 +383,10 @@ input.error {
 .button__login {
   background-color: var(--color-light-green);
   border: 2px solid var(--color-green);
+}
+
+.button__login:hover {
+   border: 2px solid var(--color-hover);
 }
 
 .button__registr:hover,

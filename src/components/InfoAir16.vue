@@ -36,6 +36,7 @@
    &__img {
       display: flex;
       justify-content: center;
+      padding-bottom: 20px;
    }
 }
 
