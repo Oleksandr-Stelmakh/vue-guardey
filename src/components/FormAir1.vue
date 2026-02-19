@@ -70,7 +70,7 @@ async function handleSubmit() {
     return
   }
   formStore.setEmail(email.value)
-  router.push('/step2')
+  router.push('/registration/step2')
 }
 
 watch(email, (val) => {
