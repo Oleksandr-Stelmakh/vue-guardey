@@ -1,17 +1,17 @@
 <script setup>
-  import Step1Info from './Step1Info.vue';
-  import Step1Form from './Step1Form.vue';
+  import Info4 from './Info4.vue';
+  import Form4 from './Form4.vue';
 </script>
 
 <template>
    <main class="main">
       <div class="info">
          <div>
-            <Step1Info />
+            <Info4 />
         </div>
       </div>
       <div class="form">
-         <Step1Form />
+         <Form4 />
       </div>
    </main>
 </template>
@@ -24,45 +24,39 @@
    min-height: 100vh;
    width: 100%;
 
-  .info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--color-green);
-   }
-
   .form {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       background-color: var(--color-light-green);
-      padding-top: 20px;
+      flex: 1;
+      padding: 50px 7px 0px 7px;
    }
  }
 
- @media (min-width: 992px) {
-  .info,
-  .form {
-    flex: 1;
-  }
-  .main{
+@media (min-width: 992px) {
+  .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--color-green);
+      flex: 1;
+      padding: 50px 7px 0px 7px;
+   }
+   .main{
     padding-top: 72px;
   }
 }
 
- @media (max-width: 991.98px) {
+  @media (max-width: 991.98px) {
    .main {
       flex-direction: column;
       padding-top: 52px;
    }
-     .info {
-    flex: 0;
-    padding: 0px 7px;
-  }
-   .form {
-    min-height: 100vh;
+   .info {
+    display: none;
   }
 }
 </style>

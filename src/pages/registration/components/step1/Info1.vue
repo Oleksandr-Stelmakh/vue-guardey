@@ -37,7 +37,7 @@ onBeforeUnmount(() => {
        class="info__container info--mobile">
 		   <h1 class="info__title">{{ t('info.title') }}</h1>
 		   <div class="info__img">
-			   <img src="./icons/Frame 2125.svg" alt="img">
+			   <img src="@/assets/icons/Frame 2125.svg" alt="img">
 		   </div>
 		   <ul class="info__list">
 			   <li>{{ t('info.werk') }} <span>{{ t('info.werk-span') }}</span>{{ t('info.apparat') }}</li>
@@ -124,7 +124,7 @@ onBeforeUnmount(() => {
    transform: translateY(-50%);
    width: 18px;
    height: 18px;
-   background: url('./icons/check.svg') no-repeat center;
+   background: url('@/assets/icons/check.svg') no-repeat center;
    background-size: contain;
 }
 

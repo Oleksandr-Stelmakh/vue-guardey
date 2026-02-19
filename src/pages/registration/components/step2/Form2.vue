@@ -120,7 +120,7 @@ const showPasswordRepeat = ref(false)
 <template>
   <div class="form__container" ref="formContainer">
     <div class="form__img">
-      <img src="./icons/Step.svg" alt="img">
+      <img src="@/assets/icons/Step.svg" alt="img">
     </div>
     <h1 class="form__title">{{ t('FormAir5.title') }}</h1>
     <form class="forms" @submit.prevent>
@@ -232,7 +232,7 @@ const showPasswordRepeat = ref(false)
   
         <button type="button" class="button__registr" @click="handleSubmit">
             {{ t('FormAir5.reg') }}
-              <img src="./icons/Variant.svg" alt="img">
+              <img src="@/assets/icons/Variant.svg" alt="img">
         </button>
       </div>
     </form>

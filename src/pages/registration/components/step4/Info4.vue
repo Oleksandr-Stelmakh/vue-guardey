@@ -1,15 +1,12 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
 </script>
 
 <template>
    <div class="info__container">
       <div class="info__img">
-         <img src="./icons/People.svg" alt="img">
+         <img src="@/assets/icons/Tell.svg" alt="img">
 		</div>
-      <h1 class="info__title">{{ t('infoAir12.title') }}</h1>
 	</div>
 </template>
 
@@ -39,6 +36,7 @@ const { t } = useI18n()
    &__img {
       display: flex;
       justify-content: center;
+      padding-bottom: 20px;
    }
 }
 

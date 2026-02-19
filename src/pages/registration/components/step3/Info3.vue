@@ -7,9 +7,9 @@ const { t } = useI18n()
 <template>
    <div class="info__container">
       <div class="info__img">
-         <img src="./icons/Comp.svg" alt="img">
+         <img src="@/assets/icons/People.svg" alt="img">
 		</div>
-      <h1 class="info__title">{{ t('infoAir5.title') }}</h1>
+      <h1 class="info__title">{{ t('infoAir12.title') }}</h1>
 	</div>
 </template>
 

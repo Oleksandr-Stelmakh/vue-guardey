@@ -1,17 +1,17 @@
 <script setup>
-  import Step4Info from './Step4Info.vue';
-  import Step4Form from './Step4Form.vue';
+  import Info2 from './Info2.vue';
+  import Form2 from './Form2.vue';
 </script>
 
 <template>
    <main class="main">
       <div class="info">
          <div>
-            <Step4Info />
+            <Info2 />
         </div>
       </div>
       <div class="form">
-         <Step4Form />
+         <Form2 />
       </div>
    </main>
 </template>
@@ -31,11 +31,11 @@
       align-items: center;
       background-color: var(--color-light-green);
       flex: 1;
-      padding: 50px 7px 0px 7px;
+      padding: 0px 7px;
    }
  }
 
-@media (min-width: 992px) {
+  @media (min-width: 992px) {
   .info {
       display: flex;
       flex-direction: column;
@@ -43,7 +43,7 @@
       align-items: center;
       background-color: var(--color-green);
       flex: 1;
-      padding: 50px 7px 0px 7px;
+      padding: 0px 7px;
    }
    .main{
     padding-top: 72px;
@@ -53,7 +53,7 @@
   @media (max-width: 991.98px) {
    .main {
       flex-direction: column;
-      padding-top: 52px;
+       padding-top: 52px;
    }
    .info {
     display: none;

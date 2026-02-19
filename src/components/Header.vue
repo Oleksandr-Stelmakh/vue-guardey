@@ -41,7 +41,7 @@ onBeforeUnmount(() => document.removeEventListener('click', handleClickOutside))
 <template>
   <header class="header">
     <a href="#" class="header__logo">
-      <img src="./icons/logo.svg" alt="logo">
+      <img src="@/assets/icons/logo.svg" alt="logo">
     </a>
 
     <nav class="header__menu">

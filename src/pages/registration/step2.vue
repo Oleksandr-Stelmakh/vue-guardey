@@ -1,10 +1,10 @@
 <script setup>
-  import Step2Main from '@/components/Step2Main.vue';
+  import Main2 from '@/pages/registration/components/step2/Main2.vue';
 </script>
 
 <template>
   <div class="page2">
-     <Step2Main />
+     <Main2 />
   </div>
 </template>
   

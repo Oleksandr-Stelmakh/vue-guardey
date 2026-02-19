@@ -1,17 +1,17 @@
 <script setup>
-  import Step2Info from './Step2Info.vue';
-  import Step2Form from './Step2Form.vue';
+  import Info3 from './Info3.vue';
+  import Form3 from './Form3.vue';
 </script>
 
 <template>
    <main class="main">
       <div class="info">
          <div>
-            <Step2Info />
+            <Info3 />
         </div>
       </div>
       <div class="form">
-         <Step2Form />
+         <Form3 />
       </div>
    </main>
 </template>
@@ -53,9 +53,9 @@
   @media (max-width: 991.98px) {
    .main {
       flex-direction: column;
-       padding-top: 52px;
+      padding-top: 52px;
    }
-   .info {
+     .info {
     display: none;
   }
 }

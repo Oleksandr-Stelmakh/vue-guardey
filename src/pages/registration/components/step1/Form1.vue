@@ -152,10 +152,10 @@ onBeforeUnmount(() => {
       <div class="form__button button">
         <button type="submit" class="button__registr">
             {{ t('form.reg') }}
-            <img src="./icons/Variant.svg" alt="img">
+            <img src="@/assets/icons/Variant.svg" alt="img">
         </button>
         <button type="submit" class="button__login">
-            <img src="./icons/Group.svg" alt="img">
+            <img src="@/assets/icons/Group.svg" alt="img">
             {{ t('form.log') }}
         </button>
       </div>

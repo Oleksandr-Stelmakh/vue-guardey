@@ -10,7 +10,7 @@ const formStore = useFormStore()
 <template>
    <div class="form__container">
       <div class="form__img">
-         <img src="./icons/Step_02.svg" alt="img">
+         <img src="@/assets/icons/Step_02.svg" alt="img">
       </div>
       <h1 class="form__title">{{ t('FormAir16.title') }}</h1>
       <div class="form__subtitle">
@@ -33,7 +33,7 @@ const formStore = useFormStore()
         </div>
         <button type="button" class="button__registr">
               {{ t('FormAir16.buttonNext') }}
-                 <img src="./icons/Variant.svg" alt="img">
+                 <img src="@/assets/icons/Variant.svg" alt="img">
         </button>
       </form>
       <div class="forms__txt">

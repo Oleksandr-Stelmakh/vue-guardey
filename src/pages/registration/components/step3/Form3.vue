@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch, onMounted, onBeforeUnmount, nextTick, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import Step3phoneCountry from './Step3PhoneCountry.vue'
+import PhoneCountry3 from './PhoneCountry3.vue'
 import { useI18n } from 'vue-i18n'
 
 const { t, tm } = useI18n()
@@ -169,7 +169,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="form__container">
     <div class="form__img">
-      <img src="./icons/Step_01.svg" alt="img">
+      <img src="@/assets/icons/Step_01.svg" alt="img">
     </div>
     <h1 class="form__title">{{ t('FormAir12.title') }}</h1>
     <form action="#" method="post" class="forms">
@@ -206,7 +206,7 @@ onBeforeUnmount(() => {
        </div>
      </div>
      <div class="phone-field">
-        <Step3phoneCountry />
+        <PhoneCountry3 />
         <div class="forms__tel">
           <label for="tel" class="forms__lable">{{ t('FormAir12.phoneLabel') }}</label>
           <input
@@ -295,7 +295,7 @@ onBeforeUnmount(() => {
        </button>
        <button type="button" class="button__registr" @click.stop="handleSubmit">
            {{ t('FormAir12.buttonNext') }}
-             <img src="./icons/Variant.svg" alt="img">
+             <img src="@/assets/icons/Variant.svg" alt="img">
        </button>
      </div>
     </form>
