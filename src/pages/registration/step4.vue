@@ -1,11 +1,9 @@
 <script setup>
-  // import  Header  from '@/components/Header.vue';
-  import MainAir16 from '@/components/MainAir16.vue';
+  import Step4Main from '@/components/Step4Main.vue';
 </script>
 
 <template>
   <div class="page4">
-     <!-- <Header /> -->
-     <MainAir16 />
+     <Step4Main />
   </div>
 </template>

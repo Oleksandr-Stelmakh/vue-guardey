@@ -1,17 +1,17 @@
 <script setup>
-  import InfoAir5 from './InfoAir5.vue';
-  import FormAir5 from './FormAir5.vue';
+  import Step3Info from './Step3Info.vue';
+  import Step3Form from './Step3Form.vue';
 </script>
 
 <template>
    <main class="main">
       <div class="info">
          <div>
-            <InfoAir5 />
+            <Step3Info />
         </div>
       </div>
       <div class="form">
-         <FormAir5 />
+         <Step3Form />
       </div>
    </main>
 </template>
@@ -53,9 +53,9 @@
   @media (max-width: 991.98px) {
    .main {
       flex-direction: column;
-       padding-top: 52px;
+      padding-top: 52px;
    }
-   .info {
+     .info {
     display: none;
   }
 }

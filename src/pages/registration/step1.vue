@@ -1,12 +1,10 @@
     
 <script setup>
-//  import  Header  from '@/components/Header.vue';
- import Main from '@/components/Main.vue';
+ import Step1Main from '@/components/Step1Main.vue';
 </script>
 
 <template>
   <div class="page1">
-    <!-- <Header /> -->
-    <Main />
+    <Step1Main />
   </div>
 </template>

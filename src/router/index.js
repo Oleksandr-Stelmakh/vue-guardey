@@ -8,6 +8,10 @@ import step4 from '@/pages/registration/step4.vue'
 
 const routes = [
    {
+      path: '/',
+      redirect: '/registration/step1'
+   },
+   {
       path: '/registration',
       component: RegistrationLayout,
       children: [
@@ -17,10 +21,6 @@ const routes = [
          { path: 'step3', component: step3 },
          { path: 'step4', component: step4 },
       ]
-   },
-   {
-      path: '/',
-      redirect: '/registration'
    }
 ]
 

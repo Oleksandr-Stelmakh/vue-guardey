@@ -1,17 +1,17 @@
 <script setup>
-  import InfoAir12 from './InfoAir12.vue';
-  import FormAir12 from './FormAir12.vue';
+  import Step4Info from './Step4Info.vue';
+  import Step4Form from './Step4Form.vue';
 </script>
 
 <template>
    <main class="main">
       <div class="info">
          <div>
-            <InfoAir12 />
+            <Step4Info />
         </div>
       </div>
       <div class="form">
-         <FormAir12 />
+         <Step4Form />
       </div>
    </main>
 </template>
@@ -31,11 +31,11 @@
       align-items: center;
       background-color: var(--color-light-green);
       flex: 1;
-      padding: 0px 7px;
+      padding: 50px 7px 0px 7px;
    }
  }
 
-  @media (min-width: 992px) {
+@media (min-width: 992px) {
   .info {
       display: flex;
       flex-direction: column;
@@ -43,7 +43,7 @@
       align-items: center;
       background-color: var(--color-green);
       flex: 1;
-      padding: 0px 7px;
+      padding: 50px 7px 0px 7px;
    }
    .main{
     padding-top: 72px;
@@ -55,7 +55,7 @@
       flex-direction: column;
       padding-top: 52px;
    }
-     .info {
+   .info {
     display: none;
   }
 }

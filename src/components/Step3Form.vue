@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch, onMounted, onBeforeUnmount, nextTick, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import phoneCountry from './phoneCountry.vue'
+import Step3phoneCountry from './Step3PhoneCountry.vue'
 import { useI18n } from 'vue-i18n'
 
 const { t, tm } = useI18n()
@@ -206,7 +206,7 @@ onBeforeUnmount(() => {
        </div>
      </div>
      <div class="phone-field">
-        <phoneCountry></phoneCountry>
+        <Step3phoneCountry />
         <div class="forms__tel">
           <label for="tel" class="forms__lable">{{ t('FormAir12.phoneLabel') }}</label>
           <input

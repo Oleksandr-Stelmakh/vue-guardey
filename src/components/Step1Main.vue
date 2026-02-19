@@ -1,17 +1,17 @@
 <script setup>
-  import InfoAir1 from './InfoAir1.vue';
-  import FormAir1 from './FormAir1.vue';
+  import Step1Info from './Step1Info.vue';
+  import Step1Form from './Step1Form.vue';
 </script>
 
 <template>
    <main class="main">
       <div class="info">
          <div>
-            <InfoAir1 />
+            <Step1Info />
         </div>
       </div>
       <div class="form">
-         <FormAir1 />
+         <Step1Form />
       </div>
    </main>
 </template>

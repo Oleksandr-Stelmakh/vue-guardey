@@ -1,12 +1,10 @@
 <script setup>
-  // import  Header  from '@/components/Header.vue';
-  import MainAir12 from '@/components/MainAir12.vue';
+  import Step3Main from '@/components/Step3Main.vue';
 </script>
 
 <template>
   <div class="page3">
-     <!-- <Header /> -->
-     <MainAir12 />
+     <Step3Main />
   </div>
 </template>
   
